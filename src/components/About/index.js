@@ -1,4 +1,8 @@
 import { useEffect, useState } from 'react'
+import DilanShanukaPDF from '../../assets/images/DilanShanuka.pdf';
+
+
+
 import {
   faFigma,
   faCss3,
@@ -19,11 +23,27 @@ const About = () => {
   const [letterClass, setLetterClass] = useState('text-animate')
 
   useEffect(() => {
-    return setTimeout(() => {
+    return () => setTimeout(() => {
       setLetterClass('text-animate-hover')
     }, 3000)
   }, [])
 
+  const handleDownloadCV = () => {
+    fetch(DilanShanukaPDF)
+      .then((response) => response.blob())
+      .then((blob) => {
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = 'DilanShanuka.pdf';
+        link.click();
+        URL.revokeObjectURL(url);
+      })
+      .catch((error) => {
+        console.error('Error downloading CV:', error);
+      });
+  };
+  
   return (
     <>
       <div className="container about-page">
@@ -59,6 +79,7 @@ const About = () => {
            I'm ready to bring my diverse background
            and enthusiasm for technology to an established IT company.
           </p>
+          <button className='button' onClick={handleDownloadCV}>Download CV</button>
         </div>
 
         <div className="stage-cube-cont">

@@ -6,6 +6,7 @@ import Home from './components/Home';
 import About from './components/About';
 import Contact from './components/Contact';
 
+
 function App() {
   return (
     
@@ -15,6 +16,8 @@ function App() {
 
       <Route path="/about" element={<div><About /><Layout /></div>} /> 
       <Route path="/contact" element={<div><Contact /><Layout /></div>} />
+      
+     
      
     
     </Routes>
