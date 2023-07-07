@@ -35,3 +35,15 @@
   stroke: #ffd700;
   stroke-width: 10;
 }
+
+.image-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.right-image {
+  width: 100%; /* Adjust the width as needed */
+  height: auto; /* Adjust the height as needed */
+  opacity: 1;
+}
