@@ -8,16 +8,54 @@ import Job1 from '../../assets/images/Job1.jpg';
 import Job2 from '../../assets/images/Job2.jpg';
 import Job3 from '../../assets/images/Job3.jpg';
 import Con2 from '../../assets/images/Con2.png';
+import Barcode from '../../assets/images/Barcode.png';
+import English1 from '../../assets/images/English1.jpeg';
+import English2 from '../../assets/images/English2.jpeg';
+import AdminView from '../../assets/images/Admin View.png';
+import SearchUsers from '../../assets/images/Search Users.png';
+import TicketGenerate from '../../assets/images/Ticket Generate.png';
+import Feedbacks from '../../assets/images/Feedbacks.jpg';
+import Chat from '../../assets/images/Chat.jpg';
+import JobPosting from '../../assets/images/Job Posting.jpg';
 import VideoProject from '../../assets/videos/video.mp4';
 import VideoProject1 from '../../assets/videos/phpVideo.mp4';
 const Portfolio = () => {
   const projects = [
     {
+      name: 'English to Sinhala Translator With Innapropriate Words Filter',
+      images: [English2, English1], // Wrap the single image in an array
+      description:
+        'English to Sinhala Translator with Innapropriate Words Filter using MongoDB, Express, React, Node.js, Tailwind CSS with RapidAPI.',
+      githubUrl: 'https://github.com/IT21177828/SPM_SEES_Translator',
+    },
+    {
+      name: 'React Barcodes Generator',
+      images: [TicketGenerate, Barcode], // Wrap the single image in an array
+      description:
+        'React Barcodes Generator using React and React-Barcode-Generator.',
+      githubUrl: 'https://github.com/IT21182914/Barcode-Generator-MERN-Web-App',
+    },
+    {
+      name: 'Loyalty Points Management System',
+      images: [AdminView, SearchUsers], // Wrap the single image in an array
+      description:
+        'Loyalty Points Management System using MERN Stack(MongoDB, Express, React, Node.js), Tailwind CSS',
+      githubUrl: 'https://github.com/IT21182914/Loyalty-Management-System',
+    },
+    {
+      name: 'PartTime Job Finder Mobile Application Using Flutter',
+      images: [Feedbacks, Chat, JobPosting], // Wrap the single image in an array
+      description:
+        'PartTime Job Finder Mobile Application using Flutter, Firebase. User can find part time jobs and apply for them. Also, user can post part time jobs and manage them.real time chat feature & location based job search feature also included.',
+      githubUrl: 'https://github.com/IT21182914/Loyalty-Management-System',
+    },
+    {
       name: 'Construction Management System',
       images: [Con2], // Wrap the single image in an array
       description:
         'Construction Management System using MERN Stack(MongoDB, Express, React, Node.js), Tailwind CSS and Firebase.',
-      githubUrl: 'https://github.com/SLIITITP/itp-malabe-b07-itp_wd_b07_g01_t86',
+      githubUrl:
+        'https://github.com/IT21182914/SLIIT-Information-Technology-Project',
     },
     {
       name: 'Computer Shop Client Management System',
@@ -29,7 +67,8 @@ const Portfolio = () => {
     {
       name: 'Job Search Mobile Application',
       images: [Job1, Job2, Job3], // Wrap the single image in an array
-      description: 'Job Search Mobile Application using Kotlin, Firebase, and Android Studio.',
+      description:
+        'Job Search Mobile Application using Kotlin, Firebase, and Android Studio.',
       githubUrl: 'https://github.com/IT21177828/JobHuntz_MobileApp_MAD_Project',
     },
     {
@@ -38,19 +77,20 @@ const Portfolio = () => {
       description: 'Tip Calculator App using Kotlin and Android Studio.',
       githubUrl: 'https://github.com/IT21182914/Tip_Calculator_App',
     },
-    
+
     {
       name: 'Recorded Construction Management System',
       videos: [VideoProject], // Wrap the single video in an array
       description: 'Recorded video of Construction Management System',
-      githubUrl: 'https://github.com/SLIITITP/itp-malabe-b07-itp_wd_b07_g01_t86',
+      githubUrl:
+        'https://github.com/SLIITITP/itp-malabe-b07-itp_wd_b07_g01_t86',
     },
     {
-        name: 'Recorded Computer Shop Client Management System',
-        videos: [VideoProject1], // Wrap the single video in an array
-        description: 'Recorded video of Computer Shop Client Management System',
-        githubUrl: 'https://github.com/IT21182914/PHP_CRUD-Application',
-      },
+      name: 'Recorded Computer Shop Client Management System',
+      videos: [VideoProject1], // Wrap the single video in an array
+      description: 'Recorded video of Computer Shop Client Management System',
+      githubUrl: 'https://github.com/IT21182914/PHP_CRUD-Application',
+    },
     // Add more projects as needed
   ];
 
@@ -71,7 +111,7 @@ const Portfolio = () => {
         >
           Portfolio
         </h2>
-        
+
         <div className="projects">
           {projects.map((project, index) => (
             <div className="project" key={index}>
@@ -104,7 +144,12 @@ const Portfolio = () => {
               )}
               <p>{project.description}</p>
               <div className="button-container">
-                <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="github-button">
+                <a
+                  href={project.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="github-button"
+                >
                   View on GitHub
                 </a>
               </div>
