@@ -74,7 +74,6 @@ const Home = () => {
           />
         </div>
       </div>
-
       <Loader type="pacman" />
     </>
   );

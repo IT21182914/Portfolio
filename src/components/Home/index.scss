@@ -78,75 +78,58 @@
       color: #333;
     }
   }
-}
 
+  @media screen and (max-width: 768px) {
+    .text-zone {
+      position: relative;
+      left: auto;
+      top: auto;
+      transform: none;
+      width: 90%;
+      /* Adjusted width for better mobile responsiveness */
+      max-height: none;
+    }
 
+    h1 {
+      font-size: 36px;
+      line-height: 42px;
+    }
 
-@media screen and (max-width: 1200px) {
-  .tags,
-  .home-page h1:before,
-  .home-page h1:after {
-    display: none;
+    h2 {
+      font-size: 12px;
+      letter-spacing: 2px;
+    }
+
+    .flat-button {
+      float: none;
+      display: block;
+      /* Ensure button is clickable on mobile */
+      margin-top: 10px;
+      /* Adjusted margin for better spacing */
+    }
+
+    .right-image-container {
+      position: absolute;
+      top: 350px; // Adjusted vertical position for the image in mobile
+      right: 100px;
+      width: 200px;
+      height: 200px;
+    }
   }
 
-  .home-page .text-zone {
-    position: initial;
-    width: 100%;
-    transform: none;
-    padding: 10px;
-    box-sizing: border-box;
+  @media screen and (min-width: 768px) {
+    .right-image-container {
+      position: absolute;
+      top: 150px; // Original vertical position for PC
+      right: 200px;
+      width: 500px;
+      height: 500px;
+    }
+
+    .right-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
   }
-
-  .home-page .flat-button {
-    float: none;
-    display: block;
-    margin: 20px auto 0 auto;
-    width: 124px;
-  }
-
-  .logo-container {
-    position: relative;
-    width: 100px;
-    height: auto;
-    top: 50px;
-    right: 0;
-    box-sizing: border-box;
-    margin: auto;
-    left: 0;
-  }
-
-  .logo-container svg {
-    position: absolute;
-    top: auto;
-    right: auto;
-    bottom: auto;
-    left: 0;
-    margin: auto;
-  }
-}
-
-.right-image-container {
-  position: absolute;
-  top: 100px; /* Adjust the vertical position */
-  right: 200px; /* Adjust the horizontal position */
-  width: 500px; /* Adjust the width */
-  height: 500px; /* Adjust the height */
-}
-
-.right-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-
-@media screen and (max-width: 1200px) {
-// Other styles...
-
-.right-image-container {
-  top: 10px; /* Adjust the vertical position */
-  right: 10px; /* Adjust the horizontal position */
-  width: 80px; /* Adjust the width */
-  height: 80px; /* Adjust the height */
-}
 }
