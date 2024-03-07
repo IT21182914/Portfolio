@@ -60,7 +60,7 @@ const Home = () => {
               idx={22}
             />
           </h1>
-          <h2>MERN Stack Developer / Software Engineer</h2>
+          <h2>MERN Stack Developer / Undergraduate Software Engineer</h2>
           <Link to="/contact" className="flat-button">
             CONTACT ME
           </Link>
