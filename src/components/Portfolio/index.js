@@ -47,7 +47,7 @@ const Portfolio = () => {
       images: [Feedbacks, Chat, JobPosting], // Wrap the single image in an array
       description:
         'PartTime Job Finder Mobile Application using Flutter, Firebase. User can find part time jobs and apply for them. Also, user can post part time jobs and manage them.real time chat feature & location based job search feature also included.',
-      githubUrl: 'https://github.com/IT21182914/Loyalty-Management-System',
+      githubUrl: 'https://github.com/IT21182914/PartTimeNow_flutter_app-main',
     },
     {
       name: 'Construction Management System',
