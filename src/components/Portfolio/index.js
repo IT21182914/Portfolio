@@ -17,6 +17,8 @@ import TicketGenerate from '../../assets/images/Ticket Generate.png';
 import Feedbacks from '../../assets/images/Feedbacks.jpg';
 import Chat from '../../assets/images/Chat.jpg';
 import JobPosting from '../../assets/images/Job Posting.jpg';
+import Note1 from '../../assets/images/Note1.png';
+import Note2 from '../../assets/images/Note2.png';
 import VideoProject from '../../assets/videos/video.mp4';
 import VideoProject1 from '../../assets/videos/phpVideo.mp4';
 const Portfolio = () => {
@@ -27,6 +29,14 @@ const Portfolio = () => {
       description:
         'English to Sinhala Translator with Innapropriate Words Filter using MongoDB, Express, React, Node.js, Tailwind CSS with RapidAPI.',
       githubUrl: 'https://github.com/IT21177828/SPM_SEES_Translator',
+    },
+    {
+      name: 'Simple Note Taking CRUD Application Using MERN Stack',
+      images: [Note1, Note2], // Wrap the single image in an array
+      description:
+        'Simple Note Taking CRUD Application using MERN Stack(MongoDB, Express, React, Node.js), Tailwind CSS',
+      hostUrl: 'https://unwir-project.netlify.app/',
+      githubUrl: 'https://github.com/IT21182914/Unwir-Project',
     },
     {
       name: 'React Barcodes Generator',
@@ -91,7 +101,6 @@ const Portfolio = () => {
       description: 'Recorded video of Computer Shop Client Management System',
       githubUrl: 'https://github.com/IT21182914/PHP_CRUD-Application',
     },
-    // Add more projects as needed
   ];
 
   return (
@@ -152,6 +161,25 @@ const Portfolio = () => {
                 >
                   View on GitHub
                 </a>
+                {project.hostUrl && (
+                  <a
+                    href={project.hostUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      textDecoration: 'none',
+                      backgroundColor: '#4CAF50',
+                      color: 'white',
+                      padding: '10px 20px',
+                      borderRadius: '5px',
+                      margin: '0 10px',
+                      display: 'inline-block',
+                      transition: 'background-color 0.3s',
+                    }}
+                  >
+                    See Web Application
+                  </a>
+                )}
               </div>
             </div>
           ))}
