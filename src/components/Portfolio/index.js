@@ -19,8 +19,11 @@ import Chat from '../../assets/images/Chat.jpg';
 import JobPosting from '../../assets/images/Job Posting.jpg';
 import Note1 from '../../assets/images/Note1.png';
 import Note2 from '../../assets/images/Note2.png';
+import Login from '../../assets/images/Login.png';
+import Recipes from '../../assets/images/Recipes.png';
 import VideoProject from '../../assets/videos/video.mp4';
 import VideoProject1 from '../../assets/videos/phpVideo.mp4';
+import VideoProject2 from '../../assets/videos/Recipe.mp4';
 const Portfolio = () => {
   const projects = [
     {
@@ -37,6 +40,22 @@ const Portfolio = () => {
         'Simple Note Taking CRUD Application using MERN Stack(MongoDB, Express, React, Node.js), Tailwind CSS',
       hostUrl: 'https://unwir-project.netlify.app/',
       githubUrl: 'https://github.com/IT21182914/Unwir-Project',
+    },
+    {
+      name: 'Food category and Recipe with add to favorite feature using MERN Stack',
+      images: [Recipes, Login], // Wrap the single image in an array
+      description:
+        'Simple Note Taking CRUD Application using MERN Stack(MongoDB, Express, React, Node.js), Tailwind CSS',
+      hostUrl: 'https://recipecode.netlify.app/',
+      githubUrl: 'https://github.com/IT21182914/Codesec-Project',
+    },
+    {
+      name: 'Recorded Food category and Recipe with add to favorite feature using MERN Stack',
+      videos: [VideoProject2], // Wrap the single video in an array
+      description:
+        'Recorded video of Food category and Recipe with add to favorite feature',
+      hostUrl: 'https://recipecode.netlify.app/',
+      githubUrl: 'https://github.com/IT21182914/Codesec-Project',
     },
     {
       name: 'React Barcodes Generator',
