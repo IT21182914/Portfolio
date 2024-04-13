@@ -9,19 +9,13 @@ const Logo = () => {
 
   return (
     <div className="logo-container" ref={bgRef}>
-      <img
-        className="solid-logo"
-        ref={solidLogoRef}
-        src={LogoS}
-        alt="JavaScript Developer"
-      />
+      <img className="solid-logo" ref={solidLogoRef} src={LogoS} />
 
       <div className="image-container">
         <img
           className="right-image"
           ref={rightImageRef}
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAiYyz3cmq7sEMssxzvrZjvktYnv6t25W8OA&usqp=CAU"
-          alt="Right Side Image"
         />
       </div>
 
