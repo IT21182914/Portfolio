@@ -20,8 +20,8 @@ function App() {
                 <Layout />
               </div>
             }
-          />
-
+          />{' '}
+          <Route />
           <Route
             path="/about"
             element={
@@ -31,6 +31,7 @@ function App() {
               </div>
             }
           />
+          <Route />
           <Route
             path="/contact"
             element={
@@ -39,7 +40,8 @@ function App() {
                 <Layout />
               </div>
             }
-          />
+          />{' '}
+          <Route />
           <Route
             path="/portfolio"
             element={
@@ -48,7 +50,8 @@ function App() {
                 <Layout />
               </div>
             }
-          />
+          />{' '}
+          <Route />
         </Routes>
       </Router>
     </>
