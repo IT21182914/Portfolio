@@ -45,7 +45,7 @@ const Portfolio = () => {
       name: 'Food category and Recipe with add to favorite feature using MERN Stack',
       images: [Recipes, Login], // Wrap the single image in an array
       description:
-        'Simple Note Taking CRUD Application using MERN Stack(MongoDB, Express, React, Node.js), Tailwind CSS',
+        'Food category and Recipe with add to favorite feature using MERN Stack(MongoDB, Express, React, Node.js). User can view food categories and recipes. Also, user can add recipes to favorite list.',
       hostUrl: 'https://recipecode.netlify.app/',
       githubUrl: 'https://github.com/IT21182914/Codesec-Project',
     },
