@@ -1,36 +1,42 @@
-import { useEffect, useState } from 'react'
-import Loader from 'react-loaders'
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
-import { useRef } from 'react'
-import emailjs from '@emailjs/browser'
-import AnimatedLetters from '../AnimatedLetters'
-import './index.scss'
+import { useEffect, useState } from 'react';
+import Loader from 'react-loaders';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import { useRef } from 'react';
+import emailjs from '@emailjs/browser';
+import AnimatedLetters from '../AnimatedLetters';
+import './index.scss';
 
 const Contact = () => {
-  const [letterClass, setLetterClass] = useState('text-animate')
-  const form = useRef()
+  const [letterClass, setLetterClass] = useState('text-animate');
+  const form = useRef();
 
   useEffect(() => {
-    return () => setTimeout(() => {
-      setLetterClass('text-animate-hover')
-    }, 3000)
-  }, [])
+    return () =>
+      setTimeout(() => {
+        setLetterClass('text-animate-hover');
+      }, 3000);
+  }, []);
 
   const sendEmail = (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
     emailjs
-      .sendForm('service_d4kzoki', 'template_7zhv0fc', form.current, 'UTJ13Zy9a7rRH6g4u')
+      .sendForm(
+        'service_fjvaekm',
+        'template_wkpxpyk',
+        form.current,
+        'CPlfvbXo4wQGBP2Tj'
+      )
       .then(
         () => {
-          alert('Message successfully sent!')
-          window.location.reload(false)
+          alert('Message successfully sent!');
+          window.location.reload(false);
         },
         () => {
-          alert('Failed to send the message, please try again')
+          alert('Failed to send the message, please try again');
         }
-      )
-  }
+      );
+  };
 
   return (
     <>
@@ -44,26 +50,31 @@ const Contact = () => {
             />
           </h1>
           <p>
-          I am a Software Engineer internship seeker, 
-          driven to expand my professional experience and skills. 
-          If you have any internship opportunities available, 
-          I would greatly appreciate the chance to connect and discuss how 
-          I can contribute to your team. I am enthusiastic about gaining 
-          valuable industry experience and working on challenging projects. 
-          Please feel free to contact me at your convenience, 
-          as I am eager to learn and grow in the field of software engineering.
+            I am a Software Engineer internship seeker, driven to expand my
+            professional experience and skills. If you have any internship
+            opportunities available, I would greatly appreciate the chance to
+            connect and discuss how I can contribute to your team. I am
+            enthusiastic about gaining valuable industry experience and working
+            on challenging projects. Please feel free to contact me at your
+            convenience, as I am eager to learn and grow in the field of
+            software engineering.
           </p>
           <div className="contact-form">
             <form ref={form} onSubmit={sendEmail}>
               <ul>
                 <li className="half">
-                  <input placeholder="Name" type="text" name="name" required />
+                  <input
+                    placeholder="Name"
+                    type="text"
+                    name="from_name"
+                    required
+                  />
                 </li>
                 <li className="half">
                   <input
                     placeholder="Email"
                     type="email"
-                    name="email"
+                    name="from_email"
                     required
                   />
                 </li>
@@ -109,7 +120,7 @@ const Contact = () => {
       </div>
       <Loader type="pacman" />
     </>
-  )
-}
+  );
+};
 
-export default Contact
+export default Contact;
