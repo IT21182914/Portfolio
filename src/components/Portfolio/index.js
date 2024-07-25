@@ -24,6 +24,9 @@ import Recipes from '../../assets/images/Recipes.png';
 import VideoProject from '../../assets/videos/video.mp4';
 import VideoProject1 from '../../assets/videos/phpVideo.mp4';
 import VideoProject2 from '../../assets/videos/Recipe.mp4';
+import flasknote1 from '../../assets/images/flasknote1.png';
+import flasknote2 from '../../assets/images/flasknote2.png';
+
 const Portfolio = () => {
   const projects = [
     {
@@ -33,17 +36,10 @@ const Portfolio = () => {
         'English to Sinhala Translator with Innapropriate Words Filter using MongoDB, Express, React, Node.js, Tailwind CSS with RapidAPI.',
       githubUrl: 'https://github.com/IT21177828/SPM_SEES_Translator',
     },
-    {
-      name: 'Simple Note Taking CRUD Application Using MERN Stack',
-      images: [Note1, Note2], // Wrap the single image in an array
-      description:
-        'Simple Note Taking CRUD Application using MERN Stack(MongoDB, Express, React, Node.js), Tailwind CSS',
-      hostUrl: 'https://unwir-project.netlify.app/',
-      githubUrl: 'https://github.com/IT21182914/Unwir-Project',
-    },
+
     {
       name: 'Food category and Recipe with add to favorite feature using MERN Stack',
-      images: [Recipes, Login], // Wrap the single image in an array
+      images: [Recipes, Login],
       description:
         'Food category and Recipe with add to favorite feature using MERN Stack(MongoDB, Express, React, Node.js). User can view food categories and recipes. Also, user can add recipes to favorite list.',
       hostUrl: 'https://recipecode.netlify.app/',
@@ -51,36 +47,51 @@ const Portfolio = () => {
     },
     {
       name: 'Recorded Food category and Recipe with add to favorite feature using MERN Stack',
-      videos: [VideoProject2], // Wrap the single video in an array
+      videos: [VideoProject2],
       description:
         'Recorded video of Food category and Recipe with add to favorite feature',
       hostUrl: 'https://recipecode.netlify.app/',
       githubUrl: 'https://github.com/IT21182914/Codesec-Project',
     },
     {
+      name: 'Note Taking CRUD Application Using Python Flask,PostgresSQL and React',
+      images: [flasknote1, flasknote2],
+      description:
+        'Simple Note Taking CRUD Application using Python Flask and React with Tailwind CSS.PostgresSQL used as the database.',
+      githubUrl: 'https://github.com/IT21182914/first-flask-app/tree/main',
+    },
+    {
       name: 'React Barcodes Generator',
-      images: [TicketGenerate, Barcode], // Wrap the single image in an array
+      images: [TicketGenerate, Barcode],
       description:
         'React Barcodes Generator using React and React-Barcode-Generator.',
       githubUrl: 'https://github.com/IT21182914/Barcode-Generator-MERN-Web-App',
     },
     {
+      name: 'Simple Note Taking CRUD Application Using MERN Stack',
+      images: [Note1, Note2],
+      description:
+        'Simple Note Taking CRUD Application using MERN Stack(MongoDB, Express, React, Node.js), Tailwind CSS',
+      hostUrl: 'https://unwir-project.netlify.app/',
+      githubUrl: 'https://github.com/IT21182914/Unwir-Project',
+    },
+    {
       name: 'Loyalty Points Management System',
-      images: [AdminView, SearchUsers], // Wrap the single image in an array
+      images: [AdminView, SearchUsers],
       description:
         'Loyalty Points Management System using MERN Stack(MongoDB, Express, React, Node.js), Tailwind CSS',
       githubUrl: 'https://github.com/IT21182914/Loyalty-Management-System',
     },
     {
       name: 'PartTime Job Finder Mobile Application Using Flutter',
-      images: [Feedbacks, Chat, JobPosting], // Wrap the single image in an array
+      images: [Feedbacks, Chat, JobPosting],
       description:
         'PartTime Job Finder Mobile Application using Flutter, Firebase. User can find part time jobs and apply for them. Also, user can post part time jobs and manage them.real time chat feature & location based job search feature also included.',
       githubUrl: 'https://github.com/IT21182914/PartTimeNow_flutter_app-main',
     },
     {
       name: 'Construction Management System',
-      images: [Con2], // Wrap the single image in an array
+      images: [Con2],
       description:
         'Construction Management System using MERN Stack(MongoDB, Express, React, Node.js), Tailwind CSS and Firebase.',
       githubUrl:
@@ -88,14 +99,14 @@ const Portfolio = () => {
     },
     {
       name: 'Computer Shop Client Management System',
-      images: [phpweb], // Wrap the single image in an array
+      images: [phpweb],
       description:
         'Computer Hardware Shop Client Management System using HTML, CSS, JavaScript, PHP, MySQL, and Bootstrap.',
       githubUrl: 'https://github.com/IT21182914/PHP_CRUD-Application',
     },
     {
       name: 'Job Search Mobile Application',
-      images: [Job1, Job2, Job3], // Wrap the single image in an array
+      images: [Job1, Job2, Job3],
       description:
         'Job Search Mobile Application using Kotlin, Firebase, and Android Studio.',
       githubUrl: 'https://github.com/IT21177828/JobHuntz_MobileApp_MAD_Project',
@@ -109,14 +120,14 @@ const Portfolio = () => {
 
     {
       name: 'Recorded Construction Management System',
-      videos: [VideoProject], // Wrap the single video in an array
+      videos: [VideoProject],
       description: 'Recorded video of Construction Management System',
       githubUrl:
         'https://github.com/SLIITITP/itp-malabe-b07-itp_wd_b07_g01_t86',
     },
     {
       name: 'Recorded Computer Shop Client Management System',
-      videos: [VideoProject1], // Wrap the single video in an array
+      videos: [VideoProject1],
       description: 'Recorded video of Computer Shop Client Management System',
       githubUrl: 'https://github.com/IT21182914/PHP_CRUD-Application',
     },
