@@ -26,12 +26,15 @@ import VideoProject1 from '../../assets/videos/phpVideo.mp4';
 import VideoProject2 from '../../assets/videos/Recipe.mp4';
 import flasknote1 from '../../assets/images/flasknote1.png';
 import flasknote2 from '../../assets/images/flasknote2.png';
+import djangoCRM1 from '../../assets/images/djangoCRM1.png';
+import djangoCRM2 from '../../assets/images/djangoCRM2.png';
+import djangoCRM3 from '../../assets/images/djangoCRM3.png';
 
 const Portfolio = () => {
   const projects = [
     {
       name: 'English to Sinhala Translator With Innapropriate Words Filter',
-      images: [English2, English1], // Wrap the single image in an array
+      images: [English2, English1],
       description:
         'English to Sinhala Translator with Innapropriate Words Filter using MongoDB, Express, React, Node.js, Tailwind CSS with RapidAPI.',
       githubUrl: 'https://github.com/IT21177828/SPM_SEES_Translator',
@@ -66,6 +69,13 @@ const Portfolio = () => {
       description:
         'React Barcodes Generator using React and React-Barcode-Generator.',
       githubUrl: 'https://github.com/IT21182914/Barcode-Generator-MERN-Web-App',
+    },
+    {
+      name: 'CRM System Using Python Django and MySQL Database.',
+      images: [djangoCRM1, djangoCRM2, djangoCRM3],
+      description:
+        'First Django project which is CRM System Using Python Django and MySQL Database. Learnt Django Forms, Registration, Login, Logout, CRUD Operations with Bootstrap & MySQL database.',
+      githubUrl: 'https://github.com/IT21182914/CRM-System-Using-Django',
     },
     {
       name: 'Simple Note Taking CRUD Application Using MERN Stack',
