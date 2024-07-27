@@ -57,10 +57,10 @@ const Portfolio = () => {
       githubUrl: 'https://github.com/IT21182914/Codesec-Project',
     },
     {
-      name: 'Note Taking CRUD Application Using Python Flask,PostgresSQL and React',
+      name: 'Note Taking CRUD Application Using Python Flask, PostgresSQL and React',
       images: [flasknote1, flasknote2],
       description:
-        'Simple Note Taking CRUD Application using Python Flask and React with Tailwind CSS.PostgresSQL used as the database.',
+        'Simple Note Taking CRUD Application using Python Flask and React with Tailwind CSS. PostgresSQL used as the database.',
       githubUrl: 'https://github.com/IT21182914/first-flask-app/tree/main',
     },
     {
