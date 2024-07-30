@@ -31,6 +31,7 @@ import djangoCRM2 from '../../assets/images/djangoCRM2.png';
 import djangoCRM3 from '../../assets/images/djangoCRM3.png';
 
 const Portfolio = () => {
+  // Array of project objects
   const projects = [
     {
       name: 'English to Sinhala Translator With Innapropriate Words Filter',
