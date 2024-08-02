@@ -11,7 +11,7 @@ import {
   faReact,
   faJava,
   faNode,
-  faPhp
+  faPhp,
 } from '@fortawesome/free-brands-svg-icons';
 import Loader from 'react-loaders';
 import AnimatedLetters from '../AnimatedLetters';
@@ -56,20 +56,25 @@ const About = () => {
             />
           </h1>
           <p>
-            I am a 3rd-year undergraduate at SLIIT, seeking a software engineering internship. With a strong passion for
-            software engineering, I am excited to apply my knowledge and skills in a professional environment. I am
-            particularly interested in working on projects that involve cutting-edge technologies and offer opportunities
-            for growth and learning.
+            I am a final year undergraduate at SLIIT, seeking a software
+            engineering internship. With a strong passion for software
+            engineering, I am excited to apply my knowledge and skills in a
+            professional environment. I am particularly interested in working on
+            projects that involve cutting-edge technologies and offer
+            opportunities for growth and learning.
           </p>
           <p align="LEFT">
-            I have hands-on experience in the MERN stack and Kotlin with Android Studio through university projects.
-            This has given me a strong foundation in both front-end and back-end development, enabling me to create
-            dynamic web applications and mobile apps.
+            I have hands-on experience in the MERN stack and Kotlin with Android
+            Studio through university projects. This has given me a strong
+            foundation in both front-end and back-end development, enabling me
+            to create dynamic web applications and mobile apps.
           </p>
           <p>
-            In addition to my technical skills, I'm a dedicated cricketer and skilled guitarist & trumpet player. These
-            interests contribute to my problem-solving abilities and attention to detail, making me a well-rounded
-            developer. I'm ready to bring my diverse background and enthusiasm for technology to an established IT company.
+            In addition to my technical skills, I'm a dedicated cricketer and
+            skilled guitarist & trumpet player. These interests contribute to my
+            problem-solving abilities and attention to detail, making me a
+            well-rounded developer. I'm ready to bring my diverse background and
+            enthusiasm for technology to an established IT company.
           </p>
           <button className="button" onClick={handleDownloadCV}>
             Download CV
@@ -107,7 +112,6 @@ const About = () => {
             </div>
           </div>
         </div>
-        
       </div>
       <Loader type="pacman" />
     </>
