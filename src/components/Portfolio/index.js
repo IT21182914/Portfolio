@@ -29,6 +29,9 @@ import flasknote2 from '../../assets/images/flasknote2.png';
 import djangoCRM1 from '../../assets/images/djangoCRM1.png';
 import djangoCRM2 from '../../assets/images/djangoCRM2.png';
 import djangoCRM3 from '../../assets/images/djangoCRM3.png';
+import Github from '../../assets/videos/Github.mp4';
+import Github1 from '../../assets/images/Github1.png';
+import Github2 from '../../assets/images/Github2.png';
 
 const Portfolio = () => {
   const projects = [
@@ -38,6 +41,20 @@ const Portfolio = () => {
       description:
         'English to Sinhala Translator with Innapropriate Words Filter using MongoDB, Express, React, Node.js, Tailwind CSS with RapidAPI.',
       githubUrl: 'https://github.com/IT21177828/SPM_SEES_Translator',
+    },
+    {
+      name: 'GitHub API Project for Display User Repositories and Search Repositories by Name',
+      images: [Github1, Github2],
+      description:
+        'Fun Project Using GitHub API to display user repositories, Like other repositories and search repositories by name, Check most starred repositories and most forked repositories using MongoDB, Express, React, Node.js, Tailwind CSS.',
+      githubUrl: 'https://github.com/IT21182914/Github-like-app',
+    },
+    {
+      name: 'Recorded GitHub API Project for Display User Repositories and Search Repositories by Name',
+      videos: [Github],
+      description:
+        'Fun Project Using GitHub API to display user repositories, Like other repositories and search repositories by name, Check most starred repositories and most forked repositories using MongoDB, Express, React, Node.js, Tailwind CSS.',
+      githubUrl: 'https://github.com/IT21182914/Github-like-app',
     },
 
     {
