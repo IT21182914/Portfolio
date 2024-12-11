@@ -55,7 +55,7 @@ const Portfolio = () => {
     },
     {
       name: 'Recorded Tech Spot Mobile Repair & Accessories Shop Website',
-      images: [TechSpotVideo],
+      videos: [TechSpotVideo],
       description:
         'Developed a website for my own mobile repair & accessories shop using React, Three.js, Tailwind CSS. This is version 1.0 of the website. in future, I will add more features to the website.',
       hostUrl: 'https://techspot99.netlify.app/',
