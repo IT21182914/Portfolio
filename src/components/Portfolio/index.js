@@ -32,6 +32,9 @@ import djangoCRM3 from '../../assets/images/djangoCRM3.png';
 import Github from '../../assets/videos/Github.mp4';
 import Github1 from '../../assets/images/Github1.png';
 import Github2 from '../../assets/images/Github2.png';
+import Home from '../../assets/images/Home.png';
+import ThreeJSHome from '../../assets/images/ThreeJSHome.png';
+import TechSpotVideo from '../../assets/videos/TechSpot.mp4';
 
 const Portfolio = () => {
   const projects = [
@@ -41,6 +44,21 @@ const Portfolio = () => {
       description:
         'English to Sinhala Translator with Innapropriate Words Filter using MongoDB, Express, React, Node.js, Tailwind CSS with RapidAPI.',
       githubUrl: 'https://github.com/IT21177828/SPM_SEES_Translator',
+    },
+    {
+      name: 'Tech Spot Mobile Repair & Accessories Shop Website',
+      images: [ThreeJSHome, Home],
+      description:
+        'Developed a website for my own mobile repair & accessories shop using React, Three.js, Tailwind CSS. This is version 1.0 of the website. in future, I will add more features to the website.',
+      hostUrl: 'https://techspot99.netlify.app/',
+      githubUrl: 'https://github.com/IT21182914/Tech-Spot-Official',
+    },
+    {
+      name: 'Recorded Tech Spot Mobile Repair & Accessories Shop Website',
+      images: [TechSpotVideo],
+      description:
+        'Developed a website for my own mobile repair & accessories shop using React, Three.js, Tailwind CSS. This is version 1.0 of the website. in future, I will add more features to the website.',
+      githubUrl: 'https://github.com/IT21182914/Tech-Spot-Official',
     },
     {
       name: 'GitHub API Project for Display User Repositories and Search Repositories by Name',
