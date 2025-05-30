@@ -105,127 +105,225 @@ const Sidebar = () => {
   ];
 
   return (
-    <div className="nav-bar">
-      {/* Enhanced Logo Section */}
-      <div className="logo-section">
-        <Link className="logo" to="/" onClick={() => setShowNav(false)}>
-          <div className="logo-container">
-            <img src={LogoS} alt="Dilan Shanuka Logo" className="main-logo" />
-            <div className="logo-glow"></div>
-          </div>
-          <img className="sub-logo" src={LogoSubtitle} alt="dilanshanuka" />
+    <>
+      {/* Mobile Header */}
+      <div className="mobile-header">
+        <Link className="mobile-logo" to="/" onClick={() => setShowNav(false)}>
+          <img src={LogoS} alt="Dilan Shanuka Logo" />
+          <span className="mobile-name">Dilan Shanuka</span>
         </Link>
 
-        {/* Status Indicator */}
-        <div className="status-indicator">
-          <div
-            className={`status-dot ${isOnline ? 'online' : 'offline'}`}
-          ></div>
-          <span className="status-text">
-            {isOnline ? 'Available' : 'Offline'}
-          </span>
-        </div>
-      </div>
-
-      {/* Enhanced Navigation */}
-      <nav className={showNav ? 'mobile-show' : ''}>
-        {navigationItems.map((item, index) => (
-          <NavLink
-            key={item.to}
-            exact={item.exact ? 'true' : undefined}
-            activeclassname="active"
-            className={`nav-link ${item.label.toLowerCase()}-link`}
-            to={item.to}
-            onClick={() => setShowNav(false)}
-          >
-            <div className="nav-icon-container">
-              <FontAwesomeIcon icon={item.icon} />
-              <div className="nav-background"></div>
-            </div>
-            <span className="nav-label">{item.label}</span>
-          </NavLink>
-        ))}
-
-        <FontAwesomeIcon
-          onClick={() => setShowNav(false)}
-          icon={faClose}
-          className="close-icon"
-        />
-      </nav>
-
-      {/* DevOps/AI Tech Stack Indicators */}
-      <div className="tech-stack">
-        <div className="tech-title">Tech Stack</div>
-        {devOpsIcons.map((tech, index) => (
-          <div
-            key={index}
-            className="tech-item"
-            title={tech.label}
-            style={{ animationDelay: `${index * 0.2}s` }}
-          >
-            <FontAwesomeIcon
-              icon={tech.icon}
-              style={{ color: tech.color }}
-              className="tech-icon"
-            />
-            <div className="tech-pulse"></div>
+        <div className="mobile-controls">
+          <div className="mobile-status">
+            <div
+              className={`status-dot ${isOnline ? 'online' : 'offline'}`}
+            ></div>
           </div>
-        ))}
+          <button
+            className="hamburger-btn"
+            onClick={() => setShowNav(true)}
+            aria-label="Open navigation menu"
+          >
+            <span className="hamburger-line"></span>
+            <span className="hamburger-line"></span>
+            <span className="hamburger-line"></span>
+          </button>
+        </div>
       </div>
 
-      {/* Enhanced Social Links */}
-      <div className="social-section">
-        <div className="social-title">Connect</div>
-        <ul className="social-links">
-          {socialLinks.map((social, index) => (
-            <li key={index}>
-              <a
-                href={social.href}
-                target="_blank"
-                rel="noreferrer"
-                title={social.label}
-                className="social-link"
-                style={{ '--hover-color': social.color }}
+      {/* Mobile Overlay */}
+      {showNav && (
+        <div
+          className="mobile-overlay"
+          onClick={() => setShowNav(false)}
+          aria-hidden="true"
+        />
+      )}
+
+      <div className="nav-bar">
+        {/* Enhanced Logo Section - Desktop Only */}
+        <div className="logo-section desktop-only">
+          <Link className="logo" to="/" onClick={() => setShowNav(false)}>
+            <div className="logo-container">
+              <img src={LogoS} alt="Dilan Shanuka Logo" className="main-logo" />
+              <div className="logo-glow"></div>
+            </div>
+            <img className="sub-logo" src={LogoSubtitle} alt="dilanshanuka" />
+          </Link>
+
+          {/* Status Indicator */}
+          <div className="status-indicator">
+            <div
+              className={`status-dot ${isOnline ? 'online' : 'offline'}`}
+            ></div>
+            <span className="status-text">
+              {isOnline ? 'Available' : 'Offline'}
+            </span>
+          </div>
+        </div>
+
+        {/* Enhanced Navigation */}
+        <nav className={`main-nav ${showNav ? 'mobile-show' : ''}`}>
+          {/* Mobile Header inside nav */}
+          <div className="mobile-nav-header">
+            <div className="mobile-nav-title">
+              <img src={LogoS} alt="Logo" className="mobile-nav-logo" />
+              <div>
+                <h3>Dilan Shanuka</h3>
+                <p>Full Stack Developer</p>
+              </div>
+            </div>
+            <button
+              className="close-btn"
+              onClick={() => setShowNav(false)}
+              aria-label="Close navigation menu"
+            >
+              <FontAwesomeIcon icon={faClose} />
+            </button>
+          </div>
+
+          {/* Navigation Links */}
+          <div className="nav-links">
+            {navigationItems.map((item, index) => (
+              <NavLink
+                key={item.to}
+                exact={item.exact ? 'true' : undefined}
+                activeclassname="active"
+                className={`nav-link ${item.label.toLowerCase()}-link`}
+                to={item.to}
+                onClick={() => setShowNav(false)}
               >
-                <FontAwesomeIcon icon={social.icon} className="social-icon" />
-                <div className="social-bg"></div>
-              </a>
-            </li>
+                <div className="nav-icon-container">
+                  <FontAwesomeIcon icon={item.icon} />
+                  <div className="nav-background"></div>
+                </div>
+                <span className="nav-label">{item.label}</span>
+                <div className="nav-arrow">→</div>
+              </NavLink>
+            ))}
+          </div>
+
+          {/* Mobile Tech Stack */}
+          <div className="mobile-tech-section">
+            <h4>Specializations</h4>
+            <div className="mobile-tech-grid">
+              {devOpsIcons.map((tech, index) => (
+                <div key={index} className="mobile-tech-item">
+                  <FontAwesomeIcon
+                    icon={tech.icon}
+                    style={{ color: tech.color }}
+                  />
+                  <span>{tech.label}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Mobile Social Links */}
+          <div className="mobile-social-section">
+            <h4>Connect With Me</h4>
+            <div className="mobile-social-grid">
+              {socialLinks.map((social, index) => (
+                <a
+                  key={index}
+                  href={social.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mobile-social-link"
+                  style={{ '--brand-color': social.color }}
+                >
+                  <FontAwesomeIcon icon={social.icon} />
+                  <span>{social.label}</span>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Mobile Footer */}
+          <div className="mobile-nav-footer">
+            <div className="mobile-time">
+              {currentTime.toLocaleTimeString([], {
+                hour: '2-digit',
+                minute: '2-digit',
+                hour12: true,
+              })}
+            </div>
+            <div className="mobile-status-text">
+              <div
+                className={`status-dot ${isOnline ? 'online' : 'offline'}`}
+              ></div>
+              {isOnline ? 'Available for work' : 'Currently offline'}
+            </div>
+          </div>
+        </nav>
+
+        {/* DevOps/AI Tech Stack Indicators - Desktop Only */}
+        <div className="tech-stack desktop-only">
+          <div className="tech-title">Tech Stack</div>
+          {devOpsIcons.map((tech, index) => (
+            <div
+              key={index}
+              className="tech-item"
+              title={tech.label}
+              style={{ animationDelay: `${index * 0.2}s` }}
+            >
+              <FontAwesomeIcon
+                icon={tech.icon}
+                style={{ color: tech.color }}
+                className="tech-icon"
+              />
+              <div className="tech-pulse"></div>
+            </div>
           ))}
-        </ul>
-      </div>
-
-      {/* System Info Panel */}
-      <div className="system-info">
-        <div className="system-time">
-          {currentTime.toLocaleTimeString([], {
-            hour: '2-digit',
-            minute: '2-digit',
-            hour12: false,
-          })}
         </div>
-        <div className="system-date">
-          {currentTime.toLocaleDateString([], {
-            month: 'short',
-            day: 'numeric',
-          })}
+
+        {/* Enhanced Social Links - Desktop Only */}
+        <div className="social-section desktop-only">
+          <div className="social-title">Connect</div>
+          <ul className="social-links">
+            {socialLinks.map((social, index) => (
+              <li key={index}>
+                <a
+                  href={social.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  title={social.label}
+                  className="social-link"
+                  style={{ '--hover-color': social.color }}
+                >
+                  <FontAwesomeIcon icon={social.icon} className="social-icon" />
+                  <div className="social-bg"></div>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* System Info Panel - Desktop Only */}
+        <div className="system-info desktop-only">
+          <div className="system-time">
+            {currentTime.toLocaleTimeString([], {
+              hour: '2-digit',
+              minute: '2-digit',
+              hour12: false,
+            })}
+          </div>
+          <div className="system-date">
+            {currentTime.toLocaleDateString([], {
+              month: 'short',
+              day: 'numeric',
+            })}
+          </div>
+        </div>
+
+        {/* Background Animation - Desktop Only */}
+        <div className="sidebar-bg-animation desktop-only">
+          <div className="bg-particle"></div>
+          <div className="bg-particle"></div>
+          <div className="bg-particle"></div>
         </div>
       </div>
-
-      {/* Mobile Menu Toggle */}
-      <FontAwesomeIcon
-        onClick={() => setShowNav(true)}
-        icon={faBars}
-        className="hamburger-icon"
-      />
-
-      {/* Background Animation */}
-      <div className="sidebar-bg-animation">
-        <div className="bg-particle"></div>
-        <div className="bg-particle"></div>
-        <div className="bg-particle"></div>
-      </div>
-    </div>
+    </>
   );
 };
 
