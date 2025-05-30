@@ -203,7 +203,7 @@ $gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
 
   .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(3, 1fr); // Fixed 3 columns
     gap: 1.5rem;
     margin-bottom: 2rem;
     width: 100%;
@@ -211,27 +211,16 @@ $gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
     margin-left: auto;
     margin-right: auto;
 
-    @media screen and (min-width: 1400px) {
-      grid-template-columns: repeat(4, 1fr); // Max 4 columns on large screens
-      max-width: 1400px;
-    }
-
     @media screen and (max-width: 1200px) {
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      grid-template-columns: repeat(3, 1fr); // Keep 3 columns
       gap: 1.25rem;
       max-width: 1000px;
     }
 
     @media screen and (max-width: 900px) {
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      grid-template-columns: repeat(2, 1fr); // 2 columns on smaller screens
       gap: 1rem;
-      max-width: 800px;
-    }
-
-    @media screen and (max-width: 768px) {
-      grid-template-columns: repeat(2, 1fr); // Two columns on tablets
-      gap: 1rem;
-      max-width: 100%;
+      max-width: 700px;
     }
 
     @media screen and (max-width: 600px) {
@@ -249,16 +238,16 @@ $gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
       transform: translateY(20px);
       animation: slideInUp 0.6s ease forwards;
       width: 100%;
-      min-height: 500px; // Increased height for better proportions
+      min-height: 520px; // Consistent height
       display: flex;
       flex-direction: column;
 
-      @media screen and (max-width: 768px) {
-        min-height: 450px;
+      @media screen and (max-width: 900px) {
+        min-height: 480px;
       }
 
       @media screen and (max-width: 600px) {
-        min-height: 400px;
+        min-height: 450px;
       }
 
       &:hover {
@@ -276,16 +265,16 @@ $gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
 
       .project-image-container {
         position: relative;
-        height: 220px; // Increased image height
+        height: 240px; // Increased for better visuals
         overflow: hidden;
         flex-shrink: 0;
 
-        @media screen and (max-width: 768px) {
-          height: 180px;
+        @media screen and (max-width: 900px) {
+          height: 200px;
         }
 
         @media screen and (max-width: 600px) {
-          height: 160px;
+          height: 180px;
         }
 
         .project-image {
@@ -567,20 +556,29 @@ $gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
     padding: 2rem;
     backdrop-filter: blur(10px);
     animation: fadeIn 0.3s ease;
+    overflow-y: auto; // Allow modal overlay to scroll
 
     @media screen and (max-width: 768px) {
       padding: 1rem;
+      align-items: flex-start; // Start from top on mobile
+      padding-top: 2rem;
     }
   }
 
   .project-modal {
     @include glassmorphism;
-    max-width: 1200px;
-    max-height: 90vh;
+    max-width: 1000px; // Reduced max width
+    max-height: 85vh; // Reduced max height
     width: 100%;
     overflow-y: auto;
     position: relative;
     animation: slideInUp 0.4s ease;
+    margin: auto; // Center the modal
+
+    @media screen and (max-width: 768px) {
+      max-height: 90vh;
+      margin: 0; // Remove auto margin on mobile
+    }
 
     .modal-close {
       position: absolute;
@@ -589,9 +587,9 @@ $gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
       background: rgba(255, 255, 255, 0.1);
       border: none;
       color: $text-primary;
-      font-size: 2rem;
-      width: 40px;
-      height: 40px;
+      font-size: 1.5rem;
+      width: 35px;
+      height: 35px;
       border-radius: 50%;
       cursor: pointer;
       display: flex;
@@ -604,12 +602,20 @@ $gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
         background: $accent-color;
         transform: rotate(90deg);
       }
+
+      @media screen and (max-width: 768px) {
+        top: 0.5rem;
+        right: 0.5rem;
+        width: 30px;
+        height: 30px;
+        font-size: 1.2rem;
+      }
     }
 
     .modal-content {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 2rem;
+      gap: 1.5rem; // Reduced gap
 
       @media screen and (max-width: 768px) {
         grid-template-columns: 1fr;
@@ -625,11 +631,11 @@ $gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
 
           .modal-image {
             width: 100%;
-            height: 400px;
+            height: 300px; // Reduced height
             object-fit: cover;
 
             @media screen and (max-width: 768px) {
-              height: 250px;
+              height: 200px;
             }
           }
 
@@ -640,9 +646,9 @@ $gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
             background: rgba(0, 0, 0, 0.7);
             border: none;
             color: $text-primary;
-            font-size: 1.5rem;
-            width: 40px;
-            height: 40px;
+            font-size: 1.2rem;
+            width: 35px;
+            height: 35px;
             border-radius: 50%;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -653,25 +659,31 @@ $gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
             }
 
             &.prev {
-              left: 1rem;
+              left: 0.75rem;
             }
 
             &.next {
-              right: 1rem;
+              right: 0.75rem;
+            }
+
+            @media screen and (max-width: 768px) {
+              width: 30px;
+              height: 30px;
+              font-size: 1rem;
             }
           }
 
           .gallery-dots {
             position: absolute;
-            bottom: 1rem;
+            bottom: 0.75rem;
             left: 50%;
             transform: translateX(-50%);
             display: flex;
-            gap: 0.5rem;
+            gap: 0.4rem;
 
             .dot {
-              width: 10px;
-              height: 10px;
+              width: 8px;
+              height: 8px;
               border-radius: 50%;
               background: rgba(255, 255, 255, 0.5);
               cursor: pointer;
@@ -679,7 +691,7 @@ $gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
 
               &.active {
                 background: $primary-color;
-                transform: scale(1.3);
+                transform: scale(1.2);
               }
             }
           }
@@ -690,37 +702,44 @@ $gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
             width: 100%;
             border-radius: 15px;
             margin-bottom: 1rem;
+            max-height: 300px; // Limit video height
           }
         }
       }
 
       .modal-info {
-        padding: 2rem;
+        padding: 1.5rem; // Reduced padding
 
         @media screen and (max-width: 768px) {
           padding: 1rem;
         }
 
         .modal-header {
-          margin-bottom: 2rem;
+          margin-bottom: 1.5rem;
 
           h2 {
             color: $text-primary;
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
+            font-size: 1.5rem; // Reduced font size
+            margin-bottom: 0.75rem;
             line-height: 1.3;
+
+            @media screen and (max-width: 768px) {
+              font-size: 1.3rem;
+            }
           }
 
           .modal-meta {
             display: flex;
             align-items: center;
             gap: 1rem;
+            flex-wrap: wrap;
 
             .project-type {
               display: flex;
               align-items: center;
-              gap: 0.5rem;
+              gap: 0.4rem;
               color: $text-secondary;
+              font-size: 0.85rem;
 
               svg {
                 color: $primary-color;
@@ -730,9 +749,9 @@ $gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
             .project-year {
               background: $primary-color;
               color: #000;
-              padding: 0.3rem 0.8rem;
-              border-radius: 15px;
-              font-size: 0.8rem;
+              padding: 0.25rem 0.6rem;
+              border-radius: 12px;
+              font-size: 0.75rem;
               font-weight: 600;
             }
           }
@@ -740,18 +759,22 @@ $gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
 
         .modal-description {
           color: $text-secondary;
-          line-height: 1.8;
-          margin-bottom: 2rem;
-          font-size: 1rem;
+          line-height: 1.6;
+          margin-bottom: 1.5rem;
+          font-size: 0.9rem;
+
+          @media screen and (max-width: 768px) {
+            font-size: 0.85rem;
+          }
         }
 
         .modal-features {
-          margin-bottom: 2rem;
+          margin-bottom: 1.5rem;
 
           h4 {
             color: $primary-color;
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+            font-size: 1rem;
           }
 
           ul {
@@ -760,41 +783,42 @@ $gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
 
             li {
               color: $text-secondary;
-              padding: 0.5rem 0;
+              padding: 0.4rem 0;
               position: relative;
-              padding-left: 1.5rem;
+              padding-left: 1.2rem;
+              font-size: 0.85rem;
 
               &:before {
                 content: '▶';
                 color: $primary-color;
                 position: absolute;
                 left: 0;
-                font-size: 0.8rem;
+                font-size: 0.7rem;
               }
             }
           }
         }
 
         .modal-technologies {
-          margin-bottom: 2rem;
+          margin-bottom: 1.5rem;
 
           h4 {
             color: $primary-color;
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+            font-size: 1rem;
           }
 
           .tech-list {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.5rem;
+            gap: 0.4rem;
 
             .tech-tag {
               background: rgba(0, 245, 255, 0.1);
               color: $primary-color;
-              padding: 0.5rem 1rem;
-              border-radius: 20px;
-              font-size: 0.8rem;
+              padding: 0.4rem 0.8rem;
+              border-radius: 15px;
+              font-size: 0.75rem;
               font-weight: 500;
               border: 1px solid rgba(0, 245, 255, 0.3);
             }
@@ -803,21 +827,22 @@ $gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
 
         .modal-actions {
           display: flex;
-          gap: 1rem;
+          gap: 0.75rem;
 
           .modal-btn {
             flex: 1;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 0.5rem;
-            padding: 1rem 1.5rem;
-            border-radius: 25px;
+            gap: 0.4rem;
+            padding: 0.75rem 1rem;
+            border-radius: 20px;
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s ease;
             text-transform: uppercase;
             letter-spacing: 1px;
+            font-size: 0.8rem;
 
             &.github-btn {
               background: rgba(255, 255, 255, 0.1);
@@ -825,7 +850,7 @@ $gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
               border: 1px solid rgba(255, 255, 255, 0.3);
 
               &:hover {
-                background: #333;
+                background: rgba(255, 255, 255, 0.2);
                 transform: translateY(-2px);
               }
             }
@@ -843,6 +868,7 @@ $gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
 
           @media screen and (max-width: 480px) {
             flex-direction: column;
+            gap: 0.5rem;
           }
         }
       }
@@ -850,23 +876,31 @@ $gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
 
     // Modal Scrollbar Styling
     &::-webkit-scrollbar {
-      width: 8px;
+      width: 6px;
     }
 
     &::-webkit-scrollbar-track {
       background: rgba(255, 255, 255, 0.1);
-      border-radius: 4px;
+      border-radius: 3px;
     }
 
     &::-webkit-scrollbar-thumb {
       background: $primary-color;
-      border-radius: 4px;
+      border-radius: 3px;
 
       &:hover {
         background: lighten($primary-color, 10%);
       }
     }
   }
+}
+
+// Body scroll lock when modal is open
+body.modal-open {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  height: 100%;
 }
 
 // Keyframe Animations
