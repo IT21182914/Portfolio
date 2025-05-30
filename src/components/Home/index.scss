@@ -26,6 +26,19 @@ $gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
   min-height: 100vh;
   position: relative;
   overflow: hidden;
+  margin-left: 80px; // Account for sidebar width
+  width: calc(100vw - 80px); // Prevent horizontal overflow
+  
+  @media screen and (max-width: 1024px) {
+    margin-left: 60px; // Smaller sidebar on tablets
+    width: calc(100vw - 60px);
+  }
+  
+  @media screen and (max-width: 768px) {
+    margin-left: 0; // No sidebar offset on mobile
+    width: 100vw;
+    padding-top: 70px; // Account for mobile header
+  }
   
   // Animated Background Elements
   .floating-elements {
@@ -78,12 +91,20 @@ $gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
   .main-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    gap: 2rem;
     align-items: center;
-    padding: 2rem;
+    padding: 1rem 2rem;
     min-height: 100vh;
     position: relative;
     z-index: 1;
+    max-width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    
+    @media screen and (max-width: 1200px) {
+      gap: 1.5rem;
+      padding: 1rem;
+    }
   }
 
   .text-zone {
@@ -447,8 +468,9 @@ $gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
   @media screen and (max-width: 1024px) {
     .main-content {
       grid-template-columns: 1fr;
-      gap: 2rem;
+      gap: 1.5rem;
       text-align: center;
+      padding: 1rem;
     }
 
     .visual-section {
@@ -457,13 +479,17 @@ $gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
       .hero-visual .glass-card {
         width: 100%;
         max-width: 350px;
+        margin: 0 auto;
       }
     }
   }
 
   @media screen and (max-width: 768px) {
+    padding-top: 90px; // Increased for better mobile header spacing
+    
     .main-content {
-      padding: 1rem;
+      padding: 0.5rem;
+      min-height: calc(100vh - 90px); // Adjust for mobile header
     }
 
     .text-zone {
@@ -484,6 +510,7 @@ $gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
 
         .role-tags {
           justify-content: center;
+          gap: 0.5rem;
 
           .role-tag {
             padding: 0.5rem 1rem;
@@ -497,10 +524,12 @@ $gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
         .description {
           font-size: 1rem;
           text-align: center;
+          padding: 0 1rem;
         }
 
         .cta-buttons {
           justify-content: center;
+          gap: 1rem;
           
           .primary-button,
           .secondary-button {
@@ -511,8 +540,11 @@ $gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
       }
 
       .skills-preview {
+        padding: 0 1rem;
+        
         .skills-grid {
           grid-template-columns: 1fr;
+          gap: 0.75rem;
         }
       }
     }
@@ -520,7 +552,7 @@ $gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
     .visual-section .hero-visual {
       .glass-card {
         width: 100%;
-        margin: 0 1rem;
+        margin: 0 auto;
 
         .card-content .code-line .command {
           font-size: 0.7rem;
@@ -538,6 +570,10 @@ $gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
   }
 
   @media screen and (max-width: 480px) {
+    .main-content {
+      padding: 0.25rem;
+    }
+    
     .text-zone .intro-section {
       h1 {
         font-size: 2rem;
