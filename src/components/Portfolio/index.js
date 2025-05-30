@@ -1,5 +1,34 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './index.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faGithub,
+  faReact,
+  faNodeJs,
+  faPython,
+  faPhp,
+  faJava,
+  faJs,
+} from '@fortawesome/free-brands-svg-icons';
+import {
+  faExternalLinkAlt,
+  faPlay,
+  faPause,
+  faExpand,
+  faCode,
+  faMobile,
+  faDesktop,
+  faDatabase,
+  faCloud,
+  faFilter,
+  faSearch,
+  faChevronLeft,
+  faChevronRight,
+} from '@fortawesome/free-solid-svg-icons';
+import Loader from 'react-loaders';
+import AnimatedLetters from '../AnimatedLetters';
+
+// Import your images and videos
 import Tip from '../../assets/images/Tip.png';
 import Tip2 from '../../assets/images/Tip2.png';
 import Tip3 from '../../assets/images/Tip3.png';
@@ -37,231 +66,538 @@ import ThreeJSHome from '../../assets/images/ThreeJSHome.png';
 import TechSpotVideo from '../../assets/videos/TechSpot.mp4';
 
 const Portfolio = () => {
+  const [letterClass, setLetterClass] = useState('text-animate');
+  const [filter, setFilter] = useState('all');
+  const [selectedProject, setSelectedProject] = useState(null);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
   const projects = [
     {
-      name: 'English to Sinhala Translator With Innapropriate Words Filter',
-      images: [English2, English1],
-      description:
-        'English to Sinhala Translator with Innapropriate Words Filter using MongoDB, Express, React, Node.js, Tailwind CSS with RapidAPI.',
-      githubUrl: 'https://github.com/IT21177828/SPM_SEES_Translator',
-    },
-    {
-      name: 'Tech Spot Mobile Repair & Accessories Shop Website',
+      id: 1,
+      name: 'Tech Spot Mobile Repair & Accessories Shop',
+      category: 'web',
+      type: 'Full Stack',
+      technologies: ['React', 'Three.js', 'Tailwind CSS'],
+      techIcons: [faReact, faJs],
       images: [ThreeJSHome, Home],
-      description:
-        'Developed fully responsive website for my own mobile repair & accessories shop using React, Three.js, Tailwind CSS. This is version 1.0 of the website. in future, I will add more features to the website.',
-      hostUrl: 'https://techspot99.netlify.app/',
-      githubUrl: 'https://github.com/IT21182914/Tech-Spot-Official',
-    },
-    {
-      name: 'Recorded Tech Spot Mobile Repair & Accessories Shop Website',
       videos: [TechSpotVideo],
       description:
-        'Developed fully responsive for my own mobile repair & accessories shop using React, Three.js, Tailwind CSS. This is version 1.0 of the website. in future, I will add more features to the website.',
+        'Developed fully responsive website for my own mobile repair & accessories shop using React, Three.js, Tailwind CSS. Features 3D animations, modern UI/UX, and responsive design.',
+      features: [
+        '3D Animations',
+        'Responsive Design',
+        'Modern UI/UX',
+        'Performance Optimized',
+      ],
       hostUrl: 'https://techspot99.netlify.app/',
       githubUrl: 'https://github.com/IT21182914/Tech-Spot-Official',
+      status: 'Live',
+      year: '2024',
     },
     {
-      name: 'GitHub API Project for Display User Repositories and Search Repositories by Name',
-      images: [Github1, Github2],
+      id: 2,
+      name: 'English to Sinhala Translator with Filter',
+      category: 'web',
+      type: 'Full Stack',
+      technologies: ['React', 'Node.js', 'MongoDB', 'RapidAPI'],
+      techIcons: [faReact, faNodeJs, faDatabase],
+      images: [English2, English1],
       description:
-        'Fun Project Using GitHub API to display user repositories, Like other repositories and search repositories by name, Check most starred repositories and most forked repositories using MongoDB, Express, React, Node.js, Tailwind CSS.',
-      githubUrl: 'https://github.com/IT21182914/Github-like-app',
+        'Advanced translation system with inappropriate words filtering using MERN stack and RapidAPI integration.',
+      features: [
+        'Real-time Translation',
+        'Content Filtering',
+        'API Integration',
+        'Modern UI',
+      ],
+      githubUrl: 'https://github.com/IT21177828/SPM_SEES_Translator',
+      status: 'Completed',
+      year: '2024',
     },
     {
-      name: 'Recorded GitHub API Project for Display User Repositories and Search Repositories by Name',
+      id: 3,
+      name: 'GitHub API Repository Explorer',
+      category: 'web',
+      type: 'Full Stack',
+      technologies: ['React', 'Node.js', 'GitHub API', 'Tailwind CSS'],
+      techIcons: [faReact, faNodeJs, faGithub],
+      images: [Github1, Github2],
       videos: [Github],
       description:
-        'Fun Project Using GitHub API to display user repositories, Like other repositories and search repositories by name, Check most starred repositories and most forked repositories using MongoDB, Express, React, Node.js, Tailwind CSS.',
+        'Interactive GitHub repository explorer with search, like, and analytics features using GitHub API.',
+      features: [
+        'Repository Search',
+        'Like System',
+        'Analytics Dashboard',
+        'User Profiles',
+      ],
       githubUrl: 'https://github.com/IT21182914/Github-like-app',
+      status: 'Completed',
+      year: '2024',
     },
-
     {
-      name: 'Food category and Recipe with add to favorite feature using MERN Stack',
+      id: 4,
+      name: 'Recipe Management System',
+      category: 'web',
+      type: 'Full Stack',
+      technologies: ['MongoDB', 'Express', 'React', 'Node.js'],
+      techIcons: [faReact, faNodeJs, faDatabase],
       images: [Recipes, Login],
-      description:
-        'Food category and Recipe with add to favorite feature using MERN Stack(MongoDB, Express, React, Node.js). User can view food categories and recipes. Also, user can add recipes to favorite list.',
-      hostUrl: 'https://recipecode.netlify.app/',
-      githubUrl: 'https://github.com/IT21182914/Codesec-Project',
-    },
-    {
-      name: 'Recorded Food category and Recipe with add to favorite feature using MERN Stack',
       videos: [VideoProject2],
       description:
-        'Recorded video of Food category and Recipe with add to favorite feature',
+        'Food category and recipe management with favorites feature using MERN stack.',
+      features: [
+        'Recipe Categories',
+        'Favorites System',
+        'User Authentication',
+        'Responsive Design',
+      ],
       hostUrl: 'https://recipecode.netlify.app/',
       githubUrl: 'https://github.com/IT21182914/Codesec-Project',
+      status: 'Live',
+      year: '2023',
     },
     {
-      name: 'Note Taking CRUD Application Using Python Flask, PostgreSQL and React',
+      id: 5,
+      name: 'Flask Note Taking App',
+      category: 'web',
+      type: 'Full Stack',
+      technologies: ['Python', 'Flask', 'PostgreSQL', 'React'],
+      techIcons: [faPython, faReact, faDatabase],
       images: [flasknote1, flasknote2],
       description:
-        'Simple Note Taking CRUD Application using Python Flask and React with Tailwind CSS. PostgreSQL used as the database.',
+        'Simple yet powerful note-taking CRUD application using Python Flask backend and React frontend.',
+      features: [
+        'CRUD Operations',
+        'PostgreSQL Database',
+        'RESTful API',
+        'Modern Frontend',
+      ],
       githubUrl: 'https://github.com/IT21182914/first-flask-app/tree/main',
+      status: 'Completed',
+      year: '2023',
     },
     {
-      name: 'React Barcodes Generator',
-      images: [TicketGenerate, Barcode],
-      description:
-        'React Barcodes Generator using React and React-Barcode-Generator.',
-      githubUrl: 'https://github.com/IT21182914/Barcode-Generator-MERN-Web-App',
-    },
-    {
-      name: 'CRM System Using Python Django and MySQL Database.',
+      id: 6,
+      name: 'CRM System',
+      category: 'web',
+      type: 'Backend',
+      technologies: ['Python', 'Django', 'MySQL', 'Bootstrap'],
+      techIcons: [faPython, faDatabase],
       images: [djangoCRM1, djangoCRM2, djangoCRM3],
       description:
-        'First Django project which is CRM System Using Python Django and MySQL Database. Learnt Django Forms, Registration, Login, Logout, CRUD Operations with Bootstrap & MySQL database.',
+        'Comprehensive CRM system built with Django featuring user management and MySQL integration.',
+      features: [
+        'User Management',
+        'CRUD Operations',
+        'Authentication',
+        'Admin Panel',
+      ],
       githubUrl: 'https://github.com/IT21182914/CRM-System-Using-Django',
+      status: 'Completed',
+      year: '2023',
     },
     {
-      name: 'Simple Note Taking CRUD Application Using MERN Stack',
-      images: [Note1, Note2],
-      description:
-        'Simple Note Taking CRUD Application using MERN Stack(MongoDB, Express, React, Node.js), Tailwind CSS',
-      hostUrl: 'https://unwir-project.netlify.app/',
-      githubUrl: 'https://github.com/IT21182914/Unwir-Project',
-    },
-    {
-      name: 'Loyalty Points Management System',
-      images: [AdminView, SearchUsers],
-      description:
-        'Loyalty Points Management System using MERN Stack(MongoDB, Express, React, Node.js), Tailwind CSS',
-      githubUrl: 'https://github.com/IT21182914/Loyalty-Management-System',
-    },
-    {
-      name: 'PartTime Job Finder Mobile Application Using Flutter',
+      id: 7,
+      name: 'PartTime Job Finder App',
+      category: 'mobile',
+      type: 'Mobile App',
+      technologies: ['Flutter', 'Firebase', 'Dart'],
+      techIcons: [faMobile],
       images: [Feedbacks, Chat, JobPosting],
       description:
-        'PartTime Job Finder Mobile Application using Flutter, Firebase. User can find part time jobs and apply for them. Also, user can post part time jobs and manage them.real time chat feature & location based job search feature also included.',
+        'Mobile application for finding part-time jobs with real-time chat and location-based search.',
+      features: [
+        'Real-time Chat',
+        'Location Search',
+        'Job Posting',
+        'User Feedback',
+      ],
       githubUrl: 'https://github.com/IT21182914/PartTimeNow_flutter_app-main',
+      status: 'Completed',
+      year: '2023',
     },
     {
+      id: 8,
       name: 'Construction Management System',
+      category: 'web',
+      type: 'Full Stack',
+      technologies: ['React', 'Node.js', 'MongoDB', 'Firebase'],
+      techIcons: [faReact, faNodeJs, faDatabase, faCloud],
       images: [Con2],
+      videos: [VideoProject],
       description:
-        'Construction Management System using MERN Stack(MongoDB, Express, React, Node.js), Tailwind CSS and Firebase.',
+        'Comprehensive construction project management system with real-time collaboration features.',
+      features: [
+        'Project Management',
+        'Real-time Updates',
+        'File Storage',
+        'Team Collaboration',
+      ],
       githubUrl:
         'https://github.com/IT21182914/SLIIT-Information-Technology-Project',
+      status: 'Completed',
+      year: '2023',
     },
     {
-      name: 'Computer Shop Client Management System',
+      id: 9,
+      name: 'Computer Shop Management',
+      category: 'web',
+      type: 'Full Stack',
+      technologies: ['PHP', 'MySQL', 'JavaScript', 'Bootstrap'],
+      techIcons: [faPhp, faDatabase],
       images: [phpweb],
+      videos: [VideoProject1],
       description:
-        'Computer Hardware Shop Client Management System using HTML, CSS, JavaScript, PHP, MySQL, and Bootstrap.',
+        'Client management system for computer hardware shop with inventory tracking.',
+      features: [
+        'Client Management',
+        'Inventory Tracking',
+        'Sales Reports',
+        'Admin Panel',
+      ],
       githubUrl: 'https://github.com/IT21182914/PHP_CRUD-Application',
+      status: 'Completed',
+      year: '2022',
     },
     {
-      name: 'Job Search Mobile Application',
+      id: 10,
+      name: 'Job Search Mobile App',
+      category: 'mobile',
+      type: 'Mobile App',
+      technologies: ['Kotlin', 'Firebase', 'Android Studio'],
+      techIcons: [faMobile, faCloud],
       images: [Job1, Job2, Job3],
       description:
-        'Job Search Mobile Application using Kotlin, Firebase, and Android Studio.',
+        'Android job search application with Firebase backend and modern material design.',
+      features: [
+        'Job Search',
+        'Application Tracking',
+        'Profile Management',
+        'Real-time Notifications',
+      ],
       githubUrl: 'https://github.com/IT21177828/JobHuntz_MobileApp_MAD_Project',
-    },
-    {
-      name: 'Tip Calculator Mobile Application',
-      images: [Tip, Tip2, Tip3],
-      description: 'Tip Calculator App using Kotlin and Android Studio.',
-      githubUrl: 'https://github.com/IT21182914/Tip_Calculator_App',
-    },
-
-    {
-      name: 'Recorded Construction Management System',
-      videos: [VideoProject],
-      description: 'Recorded video of Construction Management System',
-      githubUrl:
-        'https://github.com/SLIITITP/itp-malabe-b07-itp_wd_b07_g01_t86',
-    },
-    {
-      name: 'Recorded Computer Shop Client Management System',
-      videos: [VideoProject1],
-      description: 'Recorded video of Computer Shop Client Management System',
-      githubUrl: 'https://github.com/IT21182914/PHP_CRUD-Application',
+      status: 'Completed',
+      year: '2022',
     },
   ];
 
-  return (
-    <div className="portfolio-page">
-      <div className="portfolio-container">
-        <h2
-          style={{
-            fontSize: '5rem',
-            fontWeight: 'bold',
-            textAlign: 'center',
-            margin: '2rem 0',
-            textTransform: 'uppercase',
-            color: '#ffffff',
-            padding: '10px',
-            animation: 'dance 1s infinite',
-          }}
-        >
-          Portfolio
-        </h2>
+  const categories = [
+    { id: 'all', name: 'All Projects', icon: faCode },
+    { id: 'web', name: 'Web Applications', icon: faDesktop },
+    { id: 'mobile', name: 'Mobile Apps', icon: faMobile },
+  ];
 
-        <div className="projects">
-          {projects.map((project, index) => (
-            <div className="project" key={index}>
-              <h3>{project.name}</h3>
-              {project.images && (
-                <div className="image-gallery">
-                  {project.images.map((image, imageIndex) => (
-                    <img
-                      key={imageIndex}
-                      src={image}
-                      alt={`Screenshot ${imageIndex + 1}`}
-                      className="project-image"
-                    />
-                  ))}
+  const filteredProjects =
+    filter === 'all'
+      ? projects
+      : projects.filter((project) => project.category === filter);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLetterClass('text-animate-hover');
+    }, 3000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  const openProjectModal = (project) => {
+    setSelectedProject(project);
+    setCurrentImageIndex(0);
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeProjectModal = () => {
+    setSelectedProject(null);
+    document.body.style.overflow = 'auto';
+  };
+
+  const nextImage = () => {
+    if (selectedProject && selectedProject.images) {
+      setCurrentImageIndex((prev) =>
+        prev < selectedProject.images.length - 1 ? prev + 1 : 0
+      );
+    }
+  };
+
+  const prevImage = () => {
+    if (selectedProject && selectedProject.images) {
+      setCurrentImageIndex((prev) =>
+        prev > 0 ? prev - 1 : selectedProject.images.length - 1
+      );
+    }
+  };
+
+  return (
+    <>
+      <div className="container portfolio-page">
+        <div className="portfolio-header">
+          <h1>
+            <AnimatedLetters
+              letterClass={letterClass}
+              strArray={['P', 'o', 'r', 't', 'f', 'o', 'l', 'i', 'o']}
+              idx={15}
+            />
+          </h1>
+
+          <div className="portfolio-stats">
+            <div className="stat-item">
+              <span className="stat-number">{projects.length}+</span>
+              <span className="stat-label">Projects</span>
+            </div>
+            <div className="stat-item">
+              <span className="stat-number">5+</span>
+              <span className="stat-label">Technologies</span>
+            </div>
+            <div className="stat-item">
+              <span className="stat-number">3+</span>
+              <span className="stat-label">Years Experience</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="portfolio-filters">
+          {categories.map((category) => (
+            <button
+              key={category.id}
+              className={`filter-btn ${filter === category.id ? 'active' : ''}`}
+              onClick={() => setFilter(category.id)}
+            >
+              <FontAwesomeIcon icon={category.icon} />
+              <span>{category.name}</span>
+            </button>
+          ))}
+        </div>
+
+        <div className="projects-grid">
+          {filteredProjects.map((project, index) => (
+            <div
+              key={project.id}
+              className="project-card"
+              style={{ animationDelay: `${index * 0.1}s` }}
+              onClick={() => openProjectModal(project)}
+            >
+              <div className="project-image-container">
+                <img
+                  src={project.images[0]}
+                  alt={project.name}
+                  className="project-image"
+                />
+                <div className="project-overlay">
+                  <div className="project-tech-icons">
+                    {project.techIcons.map((icon, i) => (
+                      <FontAwesomeIcon
+                        key={i}
+                        icon={icon}
+                        className="tech-icon"
+                      />
+                    ))}
+                  </div>
+                  <button className="view-project-btn">
+                    <FontAwesomeIcon icon={faExpand} />
+                    View Project
+                  </button>
                 </div>
-              )}
-              {project.videos && (
-                <div className="video-gallery">
-                  {project.videos.map((video, videoIndex) => (
-                    <video
-                      key={videoIndex}
-                      controls
-                      className="project-video"
-                      style={{ maxWidth: '100%', height: 'auto' }}
-                    >
-                      <source src={video} type="video/mp4" />
-                    </video>
-                  ))}
+                <div className="project-status">
+                  <span
+                    className={`status-badge ${project.status.toLowerCase()}`}
+                  >
+                    {project.status}
+                  </span>
                 </div>
-              )}
-              <p>{project.description}</p>
-              <div className="button-container">
-                <a
-                  href={project.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="github-button"
-                >
-                  View on GitHub
-                </a>
-                {project.hostUrl && (
+              </div>
+
+              <div className="project-content">
+                <div className="project-header">
+                  <h3>{project.name}</h3>
+                  <span className="project-year">{project.year}</span>
+                </div>
+
+                <div className="project-type">
+                  <FontAwesomeIcon
+                    icon={project.category === 'mobile' ? faMobile : faDesktop}
+                  />
+                  <span>{project.type}</span>
+                </div>
+
+                <p className="project-description">
+                  {project.description.substring(0, 120)}...
+                </p>
+
+                <div className="project-technologies">
+                  {project.technologies.slice(0, 3).map((tech, i) => (
+                    <span key={i} className="tech-tag">
+                      {tech}
+                    </span>
+                  ))}
+                  {project.technologies.length > 3 && (
+                    <span className="tech-tag more">
+                      +{project.technologies.length - 3}
+                    </span>
+                  )}
+                </div>
+
+                <div className="project-actions">
                   <a
-                    href={project.hostUrl}
+                    href={project.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    style={{
-                      textDecoration: 'none',
-                      backgroundColor: '#4CAF50',
-                      color: 'white',
-                      padding: '10px 20px',
-                      borderRadius: '5px',
-                      margin: '0 10px',
-                      display: 'inline-block',
-                      transition: 'background-color 0.3s',
-                    }}
+                    className="action-btn github-btn"
+                    onClick={(e) => e.stopPropagation()}
                   >
-                    See Web Application
+                    <FontAwesomeIcon icon={faGithub} />
+                    <span>Code</span>
                   </a>
-                )}
+                  {project.hostUrl && (
+                    <a
+                      href={project.hostUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="action-btn live-btn"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <FontAwesomeIcon icon={faExternalLinkAlt} />
+                      <span>Live</span>
+                    </a>
+                  )}
+                </div>
               </div>
             </div>
           ))}
         </div>
+
+        {/* Project Modal */}
+        {selectedProject && (
+          <div className="project-modal-overlay" onClick={closeProjectModal}>
+            <div className="project-modal" onClick={(e) => e.stopPropagation()}>
+              <button className="modal-close" onClick={closeProjectModal}>
+                ×
+              </button>
+
+              <div className="modal-content">
+                <div className="modal-media">
+                  {selectedProject.images &&
+                    selectedProject.images.length > 0 && (
+                      <div className="image-gallery">
+                        <img
+                          src={selectedProject.images[currentImageIndex]}
+                          alt={selectedProject.name}
+                          className="modal-image"
+                        />
+                        {selectedProject.images.length > 1 && (
+                          <>
+                            <button
+                              className="gallery-nav prev"
+                              onClick={prevImage}
+                            >
+                              <FontAwesomeIcon icon={faChevronLeft} />
+                            </button>
+                            <button
+                              className="gallery-nav next"
+                              onClick={nextImage}
+                            >
+                              <FontAwesomeIcon icon={faChevronRight} />
+                            </button>
+                            <div className="gallery-dots">
+                              {selectedProject.images.map((_, i) => (
+                                <span
+                                  key={i}
+                                  className={`dot ${
+                                    i === currentImageIndex ? 'active' : ''
+                                  }`}
+                                  onClick={() => setCurrentImageIndex(i)}
+                                />
+                              ))}
+                            </div>
+                          </>
+                        )}
+                      </div>
+                    )}
+
+                  {selectedProject.videos && (
+                    <div className="video-gallery">
+                      {selectedProject.videos.map((video, i) => (
+                        <video key={i} controls className="modal-video">
+                          <source src={video} type="video/mp4" />
+                        </video>
+                      ))}
+                    </div>
+                  )}
+                </div>
+
+                <div className="modal-info">
+                  <div className="modal-header">
+                    <h2>{selectedProject.name}</h2>
+                    <div className="modal-meta">
+                      <span className="project-type">
+                        <FontAwesomeIcon
+                          icon={
+                            selectedProject.category === 'mobile'
+                              ? faMobile
+                              : faDesktop
+                          }
+                        />
+                        {selectedProject.type}
+                      </span>
+                      <span className="project-year">
+                        {selectedProject.year}
+                      </span>
+                    </div>
+                  </div>
+
+                  <p className="modal-description">
+                    {selectedProject.description}
+                  </p>
+
+                  <div className="modal-features">
+                    <h4>Key Features</h4>
+                    <ul>
+                      {selectedProject.features.map((feature, i) => (
+                        <li key={i}>{feature}</li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="modal-technologies">
+                    <h4>Technologies Used</h4>
+                    <div className="tech-list">
+                      {selectedProject.technologies.map((tech, i) => (
+                        <span key={i} className="tech-tag">
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="modal-actions">
+                    <a
+                      href={selectedProject.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="modal-btn github-btn"
+                    >
+                      <FontAwesomeIcon icon={faGithub} />
+                      View Code
+                    </a>
+                    {selectedProject.hostUrl && (
+                      <a
+                        href={selectedProject.hostUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="modal-btn live-btn"
+                      >
+                        <FontAwesomeIcon icon={faExternalLinkAlt} />
+                        Live Demo
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
-    </div>
+      <Loader type="pacman" />
+    </>
   );
 };
 
