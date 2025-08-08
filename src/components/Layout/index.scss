@@ -1,7 +1,8 @@
 .page {
     width: 100%;
-    height: 100%;
-    position: absolute;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
   }
   
   .top-tags {
@@ -26,16 +27,16 @@
   .container {
     width: 100%;
     will-change: contents;
-    height: 90%;
-    min-height: 566px;
-    position: absolute;
+    min-height: 100vh;
+    position: relative;
     opacity: 0;
-    top: 5%;
+    padding-top: 2rem;
     margin: 0 auto;
     z-index: 1;
     transform-style: preserve-3d;
     animation: fadeIn 1s forwards;
     animation-delay: 1s;
+    overflow-x: hidden;
   }
   
   .container.contact-page,
@@ -117,13 +118,15 @@
   @media screen and (max-width: 1200px) {
     .page {
       position: initial;
+      overflow-x: hidden;
     }
-  
+
     .container {
       position: initial;
       height: auto;
       min-height: auto;
-  
+      overflow-x: hidden;
+
       &.contact-page,
       &.about-page,
       &.portfolio-page {
@@ -136,28 +139,105 @@
           box-sizing: border-box;
         }
       }
-  
+
       &.portfolio-page {
         width: 100%;
         padding: 20px;
         box-sizing: border-box;
-  
+
         h1.page-title {
           margin-left: 20px;
           margin-top: 20px;
         }
-  
+
         .image-box {
           height: 200px;
           max-width: calc(50% - 10px);
         }
       }
     }
-  
+
     .stage-cube-cont {
       position: initial;
       width: 100%;
       height: 0%;
       overflow: visible;
+    }
+  }
+
+  // Enhanced tablet responsiveness
+  @media screen and (max-width: 768px) {
+    .container {
+      &.contact-page,
+      &.about-page,
+      &.portfolio-page {
+        h1 {
+          font-size: clamp(2rem, 8vw, 3.5rem);
+          margin-bottom: 30px;
+          text-align: center;
+        }
+
+        p {
+          font-size: clamp(13px, 3vw, 16px);
+          line-height: 1.6;
+          text-align: justify;
+        }
+
+        .text-zone {
+          padding: 15px;
+          max-height: none;
+        }
+      }
+
+      &.portfolio-page {
+        padding: 15px;
+
+        .image-box {
+          height: 150px;
+          max-width: 100%;
+          margin-bottom: 15px;
+        }
+      }
+    }
+  }
+
+  // Enhanced mobile responsiveness
+  @media screen and (max-width: 480px) {
+    .container {
+      &.contact-page,
+      &.about-page,
+      &.portfolio-page {
+        h1 {
+          font-size: clamp(1.5rem, 8vw, 2.5rem);
+          margin-bottom: 20px;
+          
+          &:before {
+            font-size: clamp(12px, 3vw, 16px);
+            margin-top: -8px;
+          }
+
+          &:after {
+            font-size: clamp(12px, 3vw, 16px);
+            bottom: -15px;
+          }
+        }
+
+        p {
+          font-size: clamp(11px, 3.5vw, 14px);
+          line-height: 1.5;
+        }
+
+        .text-zone {
+          padding: 10px;
+        }
+      }
+
+      &.portfolio-page {
+        padding: 10px;
+
+        .image-box {
+          height: 120px;
+        }
+      }
     }
   }

@@ -1,0 +1,280 @@
+/* Mobile Touch and Interaction Enhancements */
+
+/* Smooth scrolling for all elements */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Improve touch scrolling on iOS */
+* {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Better touch targets for mobile */
+button,
+[role="button"],
+input,
+select,
+textarea,
+a {
+  min-height: 44px;
+  min-width: 44px;
+  
+  @media (max-width: 768px) {
+    min-height: 48px;
+    min-width: 48px;
+  }
+}
+
+/* Prevent zoom on input focus on iOS */
+input[type="text"],
+input[type="email"],
+input[type="search"],
+input[type="password"],
+input[type="tel"],
+input[type="url"],
+textarea,
+select {
+  font-size: 16px;
+}
+
+/* Better button interactions on touch devices */
+button,
+[role="button"] {
+  -webkit-tap-highlight-color: rgba(0, 245, 255, 0.3);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Remove default button styles on touch devices */
+button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  background: none;
+}
+
+/* Improve scrollbar appearance */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 245, 255, 0.5);
+  border-radius: 10px;
+  
+  &:hover {
+    background: rgba(0, 245, 255, 0.7);
+  }
+}
+
+/* Firefox scrollbar styling */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 245, 255, 0.5) rgba(255, 255, 255, 0.1);
+}
+
+/* Better focus styles for accessibility */
+:focus-visible {
+  outline: 2px solid #00f5ff;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Remove default focus outline for mouse users */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Prevent text selection on UI elements */
+.no-select {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Allow text selection for content */
+.text-content {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+
+/* Disable pull-to-refresh on mobile */
+body {
+  overscroll-behavior: contain;
+}
+
+/* Prevent horizontal scrolling */
+body,
+html {
+  overflow-x: hidden;
+}
+
+/* Improve image rendering */
+img {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+/* Better animation performance */
+.animated {
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  perspective: 1000;
+}
+
+/* Optimize text rendering */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Safe area support for notched devices */
+@supports (padding: max(0px)) {
+  .safe-area {
+    padding-left: max(1rem, env(safe-area-inset-left));
+    padding-right: max(1rem, env(safe-area-inset-right));
+  }
+  
+  .safe-area-top {
+    padding-top: max(1rem, env(safe-area-inset-top));
+  }
+  
+  .safe-area-bottom {
+    padding-bottom: max(1rem, env(safe-area-inset-bottom));
+  }
+}
+
+/* Landscape orientation improvements */
+@media screen and (orientation: landscape) and (max-height: 500px) {
+  .mobile-header {
+    height: 50px;
+  }
+  
+  .container {
+    padding-top: 50px;
+  }
+}
+
+/* High resolution display optimizations */
+@media (-webkit-min-device-pixel-ratio: 2),
+       (min-resolution: 192dpi) {
+  img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+/* Dark mode optimizations */
+@media (prefers-color-scheme: dark) {
+  body {
+    color-scheme: dark;
+  }
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  * {
+    border-color: currentColor !important;
+  }
+  
+  .glassmorphism {
+    background: rgba(255, 255, 255, 0.2) !important;
+    border: 2px solid rgba(255, 255, 255, 0.8) !important;
+  }
+}
+
+/* Print optimizations */
+@media print {
+  * {
+    background: transparent !important;
+    color: black !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  
+  body {
+    font-size: 12pt;
+    line-height: 1.5;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+  }
+  
+  img {
+    max-width: 100% !important;
+    height: auto !important;
+    page-break-inside: avoid;
+  }
+  
+  .no-print {
+    display: none !important;
+  }
+}
+
+/* Loading states */
+.loading {
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+/* Skeleton loading animation */
+.skeleton {
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 25%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.1) 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Better mobile text selection */
+@media (max-width: 768px) {
+  ::selection {
+    background: rgba(0, 245, 255, 0.3);
+    color: white;
+  }
+  
+  ::-moz-selection {
+    background: rgba(0, 245, 255, 0.3);
+    color: white;
+  }
+}

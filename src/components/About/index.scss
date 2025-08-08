@@ -29,6 +29,7 @@ $gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
   max-width: 1400px;
   margin: 0 auto;
   margin-left: 80px; // Account for sidebar width
+  overflow-x: hidden;
   
   // Adjust for different screen sizes
   @media screen and (max-width: 1024px) {
@@ -77,27 +78,41 @@ $gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
       }
     }
 
-    .about-tabs {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin-bottom: 2rem;
-      flex-wrap: wrap;
+      .about-tabs {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 2rem;
+        flex-wrap: wrap;
 
-      .tab-button {
-        background: $background-card;
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        color: $text-secondary;
-        padding: 0.75rem 1.5rem;
-        border-radius: 50px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        font-weight: 500;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        font-size: 0.9rem;
+        @media screen and (max-width: 768px) {
+          gap: 0.75rem;
+        }
 
-        &:hover {
+        @media screen and (max-width: 480px) {
+          gap: 0.5rem;
+        }
+
+        .tab-button {
+          background: $background-card;
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          color: $text-secondary;
+          padding: 0.75rem 1.5rem;
+          border-radius: 50px;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          font-weight: 500;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          font-size: clamp(0.7rem, 2vw, 0.9rem);
+
+          @media screen and (max-width: 768px) {
+            padding: 0.6rem 1.2rem;
+          }
+
+          @media screen and (max-width: 480px) {
+            padding: 0.5rem 1rem;
+          }        &:hover {
           color: $text-primary;
           border-color: $primary-color;
           transform: translateY(-2px);
@@ -530,9 +545,15 @@ $gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
     }
   }
 
-  // Mobile Responsive Design
+  // Enhanced Mobile Responsive Design
+  @media screen and (max-width: 1200px) {
+    padding: 1.5rem;
+    margin-left: 60px;
+  }
+
   @media screen and (max-width: 1024px) {
     padding: 1.5rem;
+    margin-left: 0;
     
     .about-content {
       grid-template-columns: 1fr;
@@ -543,80 +564,100 @@ $gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
         order: -1;
 
         .tech-ecosystem {
-          width: 400px;
-          height: 400px;
+          width: clamp(300px, 50vw, 400px);
+          height: clamp(300px, 50vw, 400px);
         }
       }
+    }
+
+    .about-header h1 {
+      font-size: clamp(2.2rem, 6vw, 3.5rem);
     }
   }
 
   @media screen and (max-width: 768px) {
     padding: 1rem;
-    padding-top: 1rem; // Override the container padding-top
-    margin-top: 70px; // Account for mobile header instead
+    padding-top: 90px; // Account for mobile header
+    margin-left: 0;
 
     .about-header {
-      .about-tabs {
-        gap: 0.5rem;
+      margin-bottom: 2rem;
 
-        .tab-button {
-          padding: 0.5rem 1rem;
-          font-size: 0.8rem;
+      h1 {
+        margin-bottom: 1.5rem;
+
+        &:before {
+          top: -1.5rem;
+          font-size: clamp(0.8rem, 2.5vw, 1rem);
+        }
+
+        &:after {
+          bottom: -1.5rem;
+          font-size: clamp(0.8rem, 2.5vw, 1rem);
         }
       }
     }
 
     .about-content {
+      gap: 2rem;
+
       .content-section {
         .achievements-grid {
           grid-template-columns: 1fr;
+          gap: 1rem;
         }
 
         .specialization-section .specialization-grid {
           grid-template-columns: 1fr;
+          gap: 1rem;
         }
 
         .contact-info .contact-details {
           flex-direction: column;
           gap: 1rem;
         }
+
+        .skills-section .skills-grid {
+          grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+          gap: 0.75rem;
+        }
       }
 
       .visual-section .tech-ecosystem {
-        width: 300px;
-        height: 300px;
+        width: clamp(250px, 60vw, 320px);
+        height: clamp(250px, 60vw, 320px);
 
         .central-hub .hub-core {
-          width: 80px;
-          height: 80px;
+          width: clamp(60px, 15vw, 80px);
+          height: clamp(60px, 15vw, 80px);
 
           .core-icon {
-            font-size: 1.5rem;
+            font-size: clamp(1.2rem, 4vw, 1.5rem);
           }
 
           span {
-            font-size: 0.7rem;
+            font-size: clamp(0.6rem, 2vw, 0.8rem);
           }
         }
 
         .orbit-container .tech-orbit {
           &.frontend {
-            width: 140px;
-            height: 140px;
+            width: clamp(120px, 25vw, 140px);
+            height: clamp(120px, 25vw, 140px);
           }
 
           &.backend {
-            width: 200px;
-            height: 200px;
+            width: clamp(180px, 40vw, 200px);
+            height: clamp(180px, 40vw, 200px);
           }
 
           &.devops {
-            width: 260px;
-            height: 260px;
+            width: clamp(220px, 50vw, 260px);
+            height: clamp(220px, 50vw, 260px);
           }
 
           .orbit-icon {
-            font-size: 1.2rem;
+            font-size: clamp(1rem, 3vw, 1.2rem);
           }
         }
       }
@@ -624,23 +665,88 @@ $gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
   }
 
   @media screen and (max-width: 480px) {
-    padding: 0.5rem;
+    padding: 0.75rem;
+    padding-top: 80px;
     
     .about-header {
-      .about-tabs {
-        .tab-button {
-          padding: 0.4rem 0.8rem;
-          font-size: 0.7rem;
-        }
+      margin-bottom: 1.5rem;
+
+      h1 {
+        margin-bottom: 1rem;
       }
     }
 
-    .visual-section .tech-ecosystem {
-      width: 250px;
-      height: 250px;
+    .about-content {
+      gap: 1.5rem;
 
-      .orbit-container .tech-orbit .orbit-icon {
-        font-size: 1rem;
+      .content-section {
+        .achievements-grid,
+        .specialization-section .specialization-grid {
+          gap: 0.75rem;
+        }
+
+        .skills-section .skills-grid {
+          grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+          gap: 0.5rem;
+        }
+      }
+
+      .visual-section .tech-ecosystem {
+        width: clamp(220px, 70vw, 280px);
+        height: clamp(220px, 70vw, 280px);
+
+        .central-hub .hub-core {
+          width: 50px;
+          height: 50px;
+
+          .core-icon {
+            font-size: 1rem;
+          }
+
+          span {
+            font-size: 0.6rem;
+          }
+        }
+
+        .orbit-container .tech-orbit {
+          &.frontend {
+            width: 100px;
+            height: 100px;
+          }
+
+          &.backend {
+            width: 150px;
+            height: 150px;
+          }
+
+          &.devops {
+            width: 200px;
+            height: 200px;
+          }
+
+          .orbit-icon {
+            font-size: 0.9rem;
+          }
+        }
+      }
+    }
+  }
+
+  // Extra small devices
+  @media screen and (max-width: 320px) {
+    padding: 0.5rem;
+    padding-top: 75px;
+
+    .about-content {
+      gap: 1rem;
+
+      .visual-section .tech-ecosystem {
+        width: 200px;
+        height: 200px;
+
+        .orbit-container .tech-orbit .orbit-icon {
+          font-size: 0.8rem;
+        }
       }
     }
   }

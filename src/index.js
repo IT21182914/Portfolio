@@ -4,6 +4,7 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import './index.css';
+import './mobile-enhancements.css';
 
 // Use createRoot to render your app
 createRoot(document.getElementById('root')).render(

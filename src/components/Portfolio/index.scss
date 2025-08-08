@@ -203,30 +203,44 @@ $gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
 
   .projects-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); // Fixed 3 columns
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 1.5rem;
     margin-bottom: 2rem;
     width: 100%;
-    max-width: 1200px; // Limit maximum width
+    max-width: 1400px;
     margin-left: auto;
     margin-right: auto;
 
+    @media screen and (max-width: 1400px) {
+      grid-template-columns: repeat(3, 1fr);
+      max-width: 1200px;
+    }
+
     @media screen and (max-width: 1200px) {
-      grid-template-columns: repeat(3, 1fr); // Keep 3 columns
+      grid-template-columns: repeat(3, 1fr);
       gap: 1.25rem;
       max-width: 1000px;
     }
 
     @media screen and (max-width: 900px) {
-      grid-template-columns: repeat(2, 1fr); // 2 columns on smaller screens
+      grid-template-columns: repeat(2, 1fr);
       gap: 1rem;
       max-width: 700px;
     }
 
     @media screen and (max-width: 600px) {
-      grid-template-columns: 1fr; // Single column on phones
+      grid-template-columns: 1fr;
       gap: 1rem;
-      max-width: 400px;
+      max-width: 100%;
+    }
+
+    @media screen and (max-width: 480px) {
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    @media screen and (max-width: 380px) {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     }
 
     .project-card {
@@ -238,16 +252,16 @@ $gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
       transform: translateY(20px);
       animation: slideInUp 0.6s ease forwards;
       width: 100%;
-      min-height: 520px; // Consistent height
+      min-height: clamp(420px, 50vh, 520px);
       display: flex;
       flex-direction: column;
 
-      @media screen and (max-width: 900px) {
-        min-height: 480px;
+      @media screen and (max-width: 768px) {
+        min-height: clamp(380px, 45vh, 450px);
       }
 
-      @media screen and (max-width: 600px) {
-        min-height: 450px;
+      @media screen and (max-width: 480px) {
+        min-height: clamp(350px, 40vh, 400px);
       }
 
       &:hover {
@@ -263,28 +277,18 @@ $gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
         }
       }
 
-      .project-image-container {
-        position: relative;
-        height: 240px; // Increased for better visuals
-        overflow: hidden;
-        flex-shrink: 0;
+        .project-image-container {
+          position: relative;
+          height: clamp(160px, 25vh, 240px);
+          overflow: hidden;
+          flex-shrink: 0;
 
-        @media screen and (max-width: 900px) {
-          height: 200px;
-        }
-
-        @media screen and (max-width: 600px) {
-          height: 180px;
-        }
-
-        .project-image {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          transition: transform 0.4s ease;
-        }
-
-        .project-overlay {
+          .project-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+          }        .project-overlay {
           position: absolute;
           top: 0;
           left: 0;

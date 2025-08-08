@@ -1,0 +1,270 @@
+// Enhanced responsive utilities for the portfolio
+// This file contains additional responsive styles and utilities
+
+// Responsive breakpoints
+$breakpoints: (
+  xs: 320px,
+  sm: 480px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1200px,
+  xxl: 1400px
+);
+
+// Responsive mixins
+@mixin breakpoint($size) {
+  @media (max-width: map-get($breakpoints, $size)) {
+    @content;
+  }
+}
+
+@mixin breakpoint-up($size) {
+  @media (min-width: map-get($breakpoints, $size)) {
+    @content;
+  }
+}
+
+@mixin breakpoint-between($min, $max) {
+  @media (min-width: map-get($breakpoints, $min)) and (max-width: map-get($breakpoints, $max)) {
+    @content;
+  }
+}
+
+// Responsive typography
+.responsive-text {
+  &.hero-text {
+    font-size: clamp(2rem, 8vw, 5rem);
+    line-height: 1.1;
+  }
+  
+  &.heading {
+    font-size: clamp(1.5rem, 5vw, 3rem);
+    line-height: 1.2;
+  }
+  
+  &.subheading {
+    font-size: clamp(1.125rem, 3vw, 1.5rem);
+    line-height: 1.3;
+  }
+  
+  &.body {
+    font-size: clamp(0.875rem, 2.5vw, 1.125rem);
+    line-height: 1.6;
+  }
+  
+  &.small {
+    font-size: clamp(0.75rem, 2vw, 0.875rem);
+    line-height: 1.4;
+  }
+}
+
+// Responsive spacing
+.responsive-spacing {
+  &.margin {
+    &-xs { margin: clamp(0.25rem, 1vw, 0.5rem); }
+    &-sm { margin: clamp(0.5rem, 2vw, 1rem); }
+    &-md { margin: clamp(1rem, 3vw, 2rem); }
+    &-lg { margin: clamp(1.5rem, 4vw, 3rem); }
+    &-xl { margin: clamp(2rem, 5vw, 4rem); }
+  }
+  
+  &.padding {
+    &-xs { padding: clamp(0.25rem, 1vw, 0.5rem); }
+    &-sm { padding: clamp(0.5rem, 2vw, 1rem); }
+    &-md { padding: clamp(1rem, 3vw, 2rem); }
+    &-lg { padding: clamp(1.5rem, 4vw, 3rem); }
+    &-xl { padding: clamp(2rem, 5vw, 4rem); }
+  }
+}
+
+// Responsive grid utilities
+.responsive-grid {
+  display: grid;
+  gap: clamp(0.75rem, 2vw, 2rem);
+  
+  &.auto-fit {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+  
+  &.auto-fill {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+  
+  &.cols-1 { grid-template-columns: 1fr; }
+  &.cols-2 { grid-template-columns: repeat(2, 1fr); }
+  &.cols-3 { grid-template-columns: repeat(3, 1fr); }
+  &.cols-4 { grid-template-columns: repeat(4, 1fr); }
+  
+  @include breakpoint(lg) {
+    &.cols-4,
+    &.cols-3 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @include breakpoint(md) {
+    &.cols-4,
+    &.cols-3,
+    &.cols-2 {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+// Responsive flex utilities
+.responsive-flex {
+  display: flex;
+  gap: clamp(0.5rem, 2vw, 2rem);
+  
+  &.wrap {
+    flex-wrap: wrap;
+  }
+  
+  &.center {
+    align-items: center;
+    justify-content: center;
+  }
+  
+  &.space-between {
+    justify-content: space-between;
+  }
+  
+  &.column {
+    flex-direction: column;
+  }
+  
+  @include breakpoint(md) {
+    &.responsive-column {
+      flex-direction: column;
+    }
+  }
+}
+
+// Responsive visibility utilities
+.hide {
+  @include breakpoint(xl) { &-xl { display: none !important; } }
+  @include breakpoint(lg) { &-lg { display: none !important; } }
+  @include breakpoint(md) { &-md { display: none !important; } }
+  @include breakpoint(sm) { &-sm { display: none !important; } }
+  @include breakpoint(xs) { &-xs { display: none !important; } }
+}
+
+.show {
+  display: none !important;
+  @include breakpoint(xl) { &-xl { display: block !important; } }
+  @include breakpoint(lg) { &-lg { display: block !important; } }
+  @include breakpoint(md) { &-md { display: block !important; } }
+  @include breakpoint(sm) { &-sm { display: block !important; } }
+  @include breakpoint(xs) { &-xs { display: block !important; } }
+}
+
+// Touch-friendly button styles for mobile
+.touch-friendly {
+  min-height: 44px;
+  min-width: 44px;
+  
+  @include breakpoint(md) {
+    min-height: 48px;
+    min-width: 48px;
+    padding: 0.75rem 1.5rem;
+  }
+  
+  @include breakpoint(sm) {
+    min-height: 52px;
+    min-width: 52px;
+    padding: 1rem 2rem;
+  }
+}
+
+// Responsive image utilities
+.responsive-image {
+  width: 100%;
+  height: auto;
+  
+  &.aspect-16-9 {
+    aspect-ratio: 16/9;
+    object-fit: cover;
+  }
+  
+  &.aspect-4-3 {
+    aspect-ratio: 4/3;
+    object-fit: cover;
+  }
+  
+  &.aspect-1-1 {
+    aspect-ratio: 1/1;
+    object-fit: cover;
+  }
+}
+
+// Safe area support for devices with notches
+.safe-area {
+  padding-left: max(1rem, env(safe-area-inset-left));
+  padding-right: max(1rem, env(safe-area-inset-right));
+  
+  &.top {
+    padding-top: max(1rem, env(safe-area-inset-top));
+  }
+  
+  &.bottom {
+    padding-bottom: max(1rem, env(safe-area-inset-bottom));
+  }
+}
+
+// Enhanced scroll behavior for mobile
+.smooth-scroll {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+// Prevent zoom on iOS when focusing inputs
+input, textarea, select {
+  @include breakpoint(md) {
+    font-size: 16px;
+  }
+}
+
+// Better focus styles for accessibility
+.focus-visible {
+  &:focus-visible {
+    outline: 2px solid #00f5ff;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+// High contrast mode support
+@media (prefers-contrast: high) {
+  .glassmorphism {
+    background: rgba(255, 255, 255, 0.2) !important;
+    border: 2px solid rgba(255, 255, 255, 0.8) !important;
+  }
+}
+
+// Reduced motion support
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+// Print styles
+@media print {
+  .hide-print {
+    display: none !important;
+  }
+  
+  .show-print {
+    display: block !important;
+  }
+  
+  * {
+    background: white !important;
+    color: black !important;
+    box-shadow: none !important;
+  }
+}

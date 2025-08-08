@@ -36,16 +36,19 @@ const About = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [skillProgress, setSkillProgress] = useState({});
 
-  const skills = useMemo(() => [
-    { name: 'React', level: 90, icon: faReact, color: '#61DAFB' },
-    { name: 'Node.js', level: 85, icon: faNode, color: '#339933' },
-    { name: 'Python', level: 80, icon: faPython, color: '#3776AB' },
-    { name: 'Docker', level: 75, icon: faDocker, color: '#2496ED' },
-    { name: 'AWS', level: 70, icon: faAws, color: '#FF9900' },
-    { name: 'JavaScript', level: 88, icon: faJsSquare, color: '#F7DF1E' },
-    { name: 'Java', level: 75, icon: faJava, color: '#007396' },
-    { name: 'Git', level: 85, icon: faGitAlt, color: '#F05032' },
-  ], []);
+  const skills = useMemo(
+    () => [
+      { name: 'React', level: 90, icon: faReact, color: '#61DAFB' },
+      { name: 'Node.js', level: 85, icon: faNode, color: '#339933' },
+      { name: 'Python', level: 80, icon: faPython, color: '#3776AB' },
+      { name: 'Docker', level: 75, icon: faDocker, color: '#2496ED' },
+      { name: 'AWS', level: 70, icon: faAws, color: '#FF9900' },
+      { name: 'JavaScript', level: 88, icon: faJsSquare, color: '#F7DF1E' },
+      { name: 'Java', level: 75, icon: faJava, color: '#007396' },
+      { name: 'Git', level: 85, icon: faGitAlt, color: '#F05032' },
+    ],
+    []
+  );
 
   const devOpsSkills = [
     { name: 'CI/CD', icon: faRocket, color: '#00f5ff' },
@@ -97,38 +100,37 @@ const About = () => {
   const handleDownloadCV = async (event) => {
     // Prevent the default link behavior to handle download programmatically
     event.preventDefault();
-    
+
     try {
       // Construct the CV URL
       const cvUrl = `${process.env.PUBLIC_URL}/DilanShanuka_SE_CV.pdf`;
       console.log('Attempting to download CV from:', cvUrl);
-      
+
       // Check if file exists first
       const response = await fetch(cvUrl, { method: 'HEAD' });
       if (!response.ok) {
         throw new Error(`CV file not found: ${response.status}`);
       }
-      
+
       // Create download link
       const link = document.createElement('a');
       link.href = cvUrl;
       link.download = 'DilanShanuka_SE_CV.pdf';
       link.target = '_blank';
       link.rel = 'noopener noreferrer';
-      
+
       // For mobile Safari compatibility
       link.setAttribute('download', 'DilanShanuka_SE_CV.pdf');
-      
+
       // Add to DOM, click, and remove
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
-      
+
       console.log('CV download initiated successfully');
-      
     } catch (error) {
       console.error('Error downloading CV:', error);
-      
+
       // Fallback: Use the link's default behavior
       try {
         const fallbackUrl = `${process.env.PUBLIC_URL}/DilanShanuka_SE_CV.pdf`;
@@ -136,7 +138,7 @@ const About = () => {
         window.open(fallbackUrl, '_blank', 'noopener,noreferrer');
       } catch (fallbackError) {
         console.error('Fallback method also failed:', fallbackError);
-        
+
         // Final fallback: Let the browser handle the link naturally
         window.location.href = `${process.env.PUBLIC_URL}/DilanShanuka_SE_CV.pdf`;
       }

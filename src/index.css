@@ -1,5 +1,6 @@
 html {
   font-size: 62.5%;
+  overflow-x: hidden;
 }
 
 body {
@@ -9,7 +10,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: #022c43;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
   display: block;
 }
 
@@ -18,8 +20,50 @@ body {
   margin-left: 200px;
 }
 
+/* Enhanced responsive styles */
 @media screen and (max-width: 1200px) {
   body {
-    overflow: visible;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+  
+  .dashboard {
+    margin-top: 100px;
+    margin-left: 100px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  html {
+    font-size: 60%;
+  }
+  
+  body {
+    font-size: 12px;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+  
+  .dashboard {
+    margin-top: 80px;
+    margin-left: 0;
+    padding: 0 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  html {
+    font-size: 58%;
+  }
+  
+  body {
+    font-size: 11px;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+  
+  .dashboard {
+    margin-top: 70px;
+    padding: 0 0.5rem;
   }
 }

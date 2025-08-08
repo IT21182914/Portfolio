@@ -25,7 +25,7 @@ $gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
 .home-page {
   min-height: 100vh;
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
   margin-left: 80px; // Account for sidebar width
   width: calc(100vw - 80px); // Prevent horizontal overflow
   
@@ -98,6 +98,27 @@ $gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
     position: relative;
     z-index: 1;
     max-width: 100%;
+
+    @media screen and (max-width: 1200px) {
+      gap: 1.5rem;
+      padding: 1rem 1.5rem;
+    }
+
+    @media screen and (max-width: 1024px) {
+      grid-template-columns: 1fr;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    @media screen and (max-width: 768px) {
+      padding: 0.75rem;
+      gap: 1rem;
+    }
+
+    @media screen and (max-width: 480px) {
+      padding: 0.5rem;
+      gap: 0.75rem;
+    }
     margin: 0 auto;
     box-sizing: border-box;
     
@@ -158,6 +179,16 @@ $gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
         flex-wrap: wrap;
         gap: 1rem;
         margin: 2rem 0;
+        justify-content: flex-start;
+
+        @media screen and (max-width: 1024px) {
+          justify-content: center;
+          gap: 0.75rem;
+        }
+
+        @media screen and (max-width: 480px) {
+          gap: 0.5rem;
+        }
 
         .role-tag {
           @include glassmorphism;
@@ -168,6 +199,14 @@ $gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
           opacity: 0;
           transform: translateY(20px);
           transition: all 0.3s ease;
+
+          @media screen and (max-width: 768px) {
+            padding: 0.6rem 1.2rem;
+          }
+
+          @media screen and (max-width: 480px) {
+            padding: 0.5rem 1rem;
+          }
 
           &.animate-in {
             opacity: 1;
@@ -180,12 +219,12 @@ $gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
           }
 
           .role-icon {
-            font-size: 1.2rem;
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
           }
 
           .role-text {
             color: $text-primary;
-            font-size: 0.9rem;
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
             font-weight: 500;
           }
         }
@@ -193,12 +232,22 @@ $gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
 
       .description {
         color: $text-secondary;
-        font-size: 1.1rem;
+        font-size: clamp(1rem, 2.5vw, 1.1rem);
         line-height: 1.6;
         margin: 2rem 0;
         max-width: 500px;
         opacity: 0;
         animation: fadeInUp 1s 2.5s both;
+
+        @media screen and (max-width: 1024px) {
+          text-align: center;
+          max-width: 100%;
+        }
+
+        @media screen and (max-width: 768px) {
+          margin: 1.5rem 0;
+          padding: 0 1rem;
+        }
       }
 
       .cta-buttons {
@@ -206,6 +255,21 @@ $gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
         gap: 1.5rem;
         margin-top: 3rem;
         flex-wrap: wrap;
+
+        @media screen and (max-width: 1024px) {
+          justify-content: center;
+        }
+
+        @media screen and (max-width: 768px) {
+          gap: 1rem;
+          margin-top: 2rem;
+        }
+
+        @media screen and (max-width: 480px) {
+          flex-direction: column;
+          align-items: center;
+          gap: 0.75rem;
+        }
 
         .primary-button {
           position: relative;
@@ -221,6 +285,18 @@ $gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
           transition: all 0.3s ease;
           opacity: 0;
           animation: fadeInUp 1s 3s both;
+          font-size: clamp(0.8rem, 2vw, 0.9rem);
+
+          @media screen and (max-width: 768px) {
+            padding: 0.875rem 1.75rem;
+          }
+
+          @media screen and (max-width: 480px) {
+            width: 100%;
+            max-width: 280px;
+            text-align: center;
+            padding: 0.75rem 1.5rem;
+          }
 
           span {
             position: relative;
@@ -260,6 +336,18 @@ $gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
           transition: all 0.3s ease;
           opacity: 0;
           animation: fadeInUp 1s 3.2s both;
+          font-size: clamp(0.8rem, 2vw, 0.9rem);
+
+          @media screen and (max-width: 768px) {
+            padding: 0.875rem 1.75rem;
+          }
+
+          @media screen and (max-width: 480px) {
+            width: 100%;
+            max-width: 280px;
+            text-align: center;
+            padding: 0.75rem 1.5rem;
+          }
 
           &:hover {
             background: $primary-color;
@@ -478,8 +566,17 @@ $gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
 
       .hero-visual .glass-card {
         width: 100%;
-        max-width: 350px;
+        max-width: 400px;
         margin: 0 auto;
+      }
+    }
+
+    .text-zone .intro-section h1 {
+      text-align: center;
+      
+      &:before, &:after {
+        left: 50%;
+        transform: translateX(-50%);
       }
     }
   }
@@ -488,63 +585,54 @@ $gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
     padding-top: 90px; // Increased for better mobile header spacing
     
     .main-content {
-      padding: 0.5rem;
+      padding: 0.75rem;
       min-height: calc(100vh - 90px); // Adjust for mobile header
+      gap: 1rem;
     }
 
     .text-zone {
       .intro-section {
         h1 {
-          font-size: 2.5rem;
+          font-size: clamp(2rem, 8vw, 3rem);
           line-height: 1.2;
+          margin-bottom: 1.5rem;
 
           &:before,
           &:after {
-            font-size: 0.8rem;
+            font-size: clamp(0.7rem, 2.5vw, 0.9rem);
+          }
+
+          &:before {
+            margin-top: -1.5rem;
+          }
+
+          &:after {
+            margin-top: 0.75rem;
           }
 
           img {
-            width: 3rem;
-          }
-        }
-
-        .role-tags {
-          justify-content: center;
-          gap: 0.5rem;
-
-          .role-tag {
-            padding: 0.5rem 1rem;
-
-            .role-text {
-              font-size: 0.8rem;
-            }
+            width: clamp(2.5rem, 8vw, 3.5rem);
+            margin-left: 0.75rem;
           }
         }
 
         .description {
-          font-size: 1rem;
-          text-align: center;
-          padding: 0 1rem;
-        }
-
-        .cta-buttons {
-          justify-content: center;
-          gap: 1rem;
-          
-          .primary-button,
-          .secondary-button {
-            padding: 0.75rem 1.5rem;
-            font-size: 0.9rem;
-          }
+          font-size: clamp(0.9rem, 3vw, 1.1rem);
+          margin: 1.5rem 0;
         }
       }
 
       .skills-preview {
         padding: 0 1rem;
+        margin-top: 2rem;
         
         .skills-grid {
-          grid-template-columns: 1fr;
+          grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
           gap: 0.75rem;
+        }
+
+        .skill-item {
+          padding: 0.75rem;
         }
       }
     }
@@ -552,44 +640,91 @@ $gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
     .visual-section .hero-visual {
       .glass-card {
         width: 100%;
+        max-width: 350px;
         margin: 0 auto;
 
         .card-content .code-line .command {
-          font-size: 0.7rem;
+          font-size: clamp(0.6rem, 2.5vw, 0.8rem);
         }
       }
 
       .floating-tech-icons .tech-icon {
-        font-size: 1.5rem;
+        font-size: clamp(1.2rem, 4vw, 1.8rem);
       }
     }
 
     .floating-elements .floating-element {
-      font-size: 1.5rem;
+      font-size: clamp(1.2rem, 4vw, 1.8rem);
+    }
+
+    .scroll-indicator {
+      bottom: 1rem;
     }
   }
 
   @media screen and (max-width: 480px) {
     .main-content {
-      padding: 0.25rem;
+      padding: 0.5rem;
+      gap: 0.75rem;
     }
     
     .text-zone .intro-section {
       h1 {
-        font-size: 2rem;
-      }
-
-      .cta-buttons {
-        flex-direction: column;
-        align-items: center;
+        font-size: clamp(1.8rem, 9vw, 2.5rem);
+        margin-bottom: 1rem;
         
-        .primary-button,
-        .secondary-button {
-          width: 100%;
-          max-width: 250px;
-          text-align: center;
+        img {
+          margin-left: 0.5rem;
         }
       }
+
+      .description {
+        margin: 1rem 0;
+        padding: 0;
+      }
+    }
+
+    .visual-section .hero-visual {
+      .glass-card {
+        max-width: 300px;
+        
+        .card-content {
+          padding: 1rem;
+          
+          .code-line {
+            margin: 0.25rem 0;
+            
+            .command {
+              font-size: 0.65rem;
+            }
+          }
+        }
+      }
+    }
+
+    .floating-elements .floating-element {
+      font-size: 1.2rem;
+      opacity: 0.05;
+    }
+  }
+
+  // Extra small devices
+  @media screen and (max-width: 320px) {
+    .main-content {
+      padding: 0.25rem;
+    }
+
+    .text-zone .intro-section h1 {
+      font-size: 1.6rem;
+      
+      img {
+        width: 2rem;
+        margin-left: 0.25rem;
+      }
+    }
+
+    .visual-section .hero-visual .glass-card {
+      max-width: 260px;
     }
   }
 }

@@ -6,7 +6,7 @@ const Layout = () => {
   return (
     <>
       <Sidebar />
-      <div className="page">
+      <div className="page horizontal-scroll-fix">
         <span className="tags top-tags">&lt;body&gt;</span>
         <Outlet />
         <span className="tags bottom-tags">
