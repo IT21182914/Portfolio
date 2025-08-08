@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import DilanShanukaPDF from '../../assets/images/Dilan Shanuka SE CV.pdf';
+import React, { useEffect, useState, useMemo } from 'react';
 import {
-  faFigma,
   faCss3,
   faGitAlt,
   faHtml5,
@@ -38,7 +36,7 @@ const About = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [skillProgress, setSkillProgress] = useState({});
 
-  const skills = [
+  const skills = useMemo(() => [
     { name: 'React', level: 90, icon: faReact, color: '#61DAFB' },
     { name: 'Node.js', level: 85, icon: faNode, color: '#339933' },
     { name: 'Python', level: 80, icon: faPython, color: '#3776AB' },
@@ -47,7 +45,7 @@ const About = () => {
     { name: 'JavaScript', level: 88, icon: faJsSquare, color: '#F7DF1E' },
     { name: 'Java', level: 75, icon: faJava, color: '#007396' },
     { name: 'Git', level: 85, icon: faGitAlt, color: '#F05032' },
-  ];
+  ], []);
 
   const devOpsSkills = [
     { name: 'CI/CD', icon: faRocket, color: '#00f5ff' },
@@ -94,22 +92,55 @@ const About = () => {
 
       return () => clearTimeout(timer);
     }
-  }, [isVisible]);
+  }, [isVisible, skills]);
 
-  const handleDownloadCV = () => {
-    fetch(DilanShanukaPDF)
-      .then((response) => response.blob())
-      .then((blob) => {
-        const url = URL.createObjectURL(blob);
-        const link = document.createElement('a');
-        link.href = url;
-        link.download = 'DilanShanuka_CV.pdf';
-        link.click();
-        URL.revokeObjectURL(url);
-      })
-      .catch((error) => {
-        console.error('Error downloading CV:', error);
-      });
+  const handleDownloadCV = async (event) => {
+    // Prevent the default link behavior to handle download programmatically
+    event.preventDefault();
+    
+    try {
+      // Construct the CV URL
+      const cvUrl = `${process.env.PUBLIC_URL}/DilanShanuka_SE_CV.pdf`;
+      console.log('Attempting to download CV from:', cvUrl);
+      
+      // Check if file exists first
+      const response = await fetch(cvUrl, { method: 'HEAD' });
+      if (!response.ok) {
+        throw new Error(`CV file not found: ${response.status}`);
+      }
+      
+      // Create download link
+      const link = document.createElement('a');
+      link.href = cvUrl;
+      link.download = 'DilanShanuka_SE_CV.pdf';
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+      
+      // For mobile Safari compatibility
+      link.setAttribute('download', 'DilanShanuka_SE_CV.pdf');
+      
+      // Add to DOM, click, and remove
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      
+      console.log('CV download initiated successfully');
+      
+    } catch (error) {
+      console.error('Error downloading CV:', error);
+      
+      // Fallback: Use the link's default behavior
+      try {
+        const fallbackUrl = `${process.env.PUBLIC_URL}/DilanShanuka_SE_CV.pdf`;
+        console.log('Trying fallback method with URL:', fallbackUrl);
+        window.open(fallbackUrl, '_blank', 'noopener,noreferrer');
+      } catch (fallbackError) {
+        console.error('Fallback method also failed:', fallbackError);
+        
+        // Final fallback: Let the browser handle the link naturally
+        window.location.href = `${process.env.PUBLIC_URL}/DilanShanuka_SE_CV.pdf`;
+      }
+    }
   };
 
   const tabContent = {
@@ -254,14 +285,18 @@ const About = () => {
             {tabContent[activeTab]}
 
             <div className="cta-section">
-              <button
+              <a
+                href={`${process.env.PUBLIC_URL}/DilanShanuka_SE_CV.pdf`}
+                download="DilanShanuka_SE_CV.pdf"
                 className="download-btn primary"
                 onClick={handleDownloadCV}
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <FontAwesomeIcon icon={faDownload} />
                 <span>Download CV</span>
                 <div className="btn-glow"></div>
-              </button>
+              </a>
 
               <div className="contact-info">
                 <p>Ready to collaborate on innovative projects</p>

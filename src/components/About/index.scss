@@ -304,6 +304,9 @@ $gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
         text-align: center;
 
         .download-btn {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
           position: relative;
           background: $gradient-primary;
           border: none;
@@ -318,6 +321,7 @@ $gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
           letter-spacing: 1px;
           margin-bottom: 2rem;
           overflow: hidden;
+          text-decoration: none; // Remove link underline
 
           svg {
             margin-right: 0.5rem;
@@ -333,13 +337,19 @@ $gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
             transition: left 0.5s ease;
           }
 
-          &:hover {
+          &:hover, &:focus {
             transform: translateY(-3px);
+            color: $text-primary; // Ensure text stays white on hover
+            text-decoration: none; // Remove any link decoration
             @include neon-glow($primary-color);
 
             .btn-glow {
               left: 100%;
             }
+          }
+
+          &:visited {
+            color: $text-primary; // Ensure visited links stay white
           }
         }
 

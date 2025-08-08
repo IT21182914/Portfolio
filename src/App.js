@@ -10,43 +10,12 @@ function App() {
   return (
     <>
       <Routes>
-        <Route
-          path="/"
-          element={
-            <div>
-              <Home />
-              <Layout />
-            </div>
-          }
-        />{' '}
-        <Route
-          path="/about"
-          element={
-            <div>
-              <About />
-              <Layout />
-            </div>
-          }
-        />
-        <Route
-          path="/contact"
-          element={
-            <div>
-              <Contact />
-              <Layout />
-            </div>
-          }
-        />{' '}
-        <Route
-          path="/portfolio"
-          element={
-            <div>
-              <Portfolio />
-              <Layout />
-            </div>
-          }
-        />{' '}
-        <Route />
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="about" element={<About />} />
+          <Route path="contact" element={<Contact />} />
+          <Route path="portfolio" element={<Portfolio />} />
+        </Route>
       </Routes>
     </>
   );
