@@ -68,13 +68,9 @@ textarea {
   box-sizing: border-box;
 }
 
-html {
-  overflow-x: hidden;
-}
+/* Overflow handled globally in index.css */
 
-body {
-  overflow-x: hidden;
-  
+body {  
   @include mobile {
     font-size: 14px;
   }

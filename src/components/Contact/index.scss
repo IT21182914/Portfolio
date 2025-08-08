@@ -54,7 +54,7 @@ $gradient-hero: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 7
 // Base Styles
 .container.contact-page {
   min-height: 100vh;
-  background: $background-primary;
+  background: transparent; // Let the body background show through
   position: relative;
   overflow-x: hidden;
   padding: 0;
@@ -1277,33 +1277,7 @@ $gradient-hero: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 7
 }
 
 // Smooth scrolling
-html {
-  scroll-behavior: smooth;
-  overflow-x: hidden;
-}
-
-body {
-  overflow-x: hidden;
-}
-
-// Custom scrollbar for webkit browsers
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: $primary-color;
-  border-radius: 4px;
-  
-  &:hover {
-    background: lighten($primary-color, 10%);
-  }
-}
+// Custom scrollbar styles removed - handled globally in index.css
 
 // Selection styles
 ::selection {
