@@ -419,6 +419,59 @@ $gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
     .hero-visual {
       position: relative;
       z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+
+      // Profile Image Styles
+      .profile-image-container {
+        position: relative;
+        opacity: 0;
+        animation: fadeInUp 1s 1.5s both;
+        
+        .profile-image {
+          width: 200px;
+          height: 200px;
+          border-radius: 50%;
+          object-fit: cover;
+          border: 4px solid $primary-color;
+          box-shadow: 
+            0 0 30px rgba(255, 215, 0, 0.3),
+            0 0 60px rgba(255, 215, 0, 0.1);
+          transition: all 0.3s ease;
+          filter: brightness(1.1) contrast(1.1);
+          
+          @media screen and (max-width: 768px) {
+            width: 150px;
+            height: 150px;
+          }
+          
+          @media screen and (max-width: 480px) {
+            width: 120px;
+            height: 120px;
+          }
+          
+          &:hover {
+            transform: scale(1.05);
+            box-shadow: 
+              0 0 40px rgba(255, 215, 0, 0.4),
+              0 0 80px rgba(255, 215, 0, 0.2);
+          }
+        }
+        
+        .profile-glow {
+          position: absolute;
+          top: -20px;
+          left: -20px;
+          right: -20px;
+          bottom: -20px;
+          border-radius: 50%;
+          background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+          animation: pulseGlow 3s ease-in-out infinite;
+          pointer-events: none;
+        }
+      }
 
       .glass-card {
         @include glassmorphism;
@@ -789,5 +842,16 @@ $gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
   }
   60% {
     transform: translateY(-5px);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
   }
 }

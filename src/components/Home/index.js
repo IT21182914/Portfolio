@@ -153,6 +153,16 @@ const Home = () => {
 
           <div className="visual-section">
             <div className="hero-visual">
+              {/* Profile Image */}
+              <div className="profile-image-container">
+                <img
+                  src="/Me/Me.jpg"
+                  alt="Dilan Shanuka - FullStack Developer"
+                  className="profile-image"
+                />
+                <div className="profile-glow"></div>
+              </div>
+
               <div className="glass-card">
                 <div className="card-header">
                   <div className="terminal-dots">

@@ -241,6 +241,22 @@ const Contact = () => {
               <p>Choose your preferred way to get in touch</p>
             </div>
 
+            {/* Contact Profile */}
+            <div className="contact-profile">
+              <img
+                src="/Me/Me.jpg"
+                alt="Dilan Shanuka - Contact Me"
+                className="contact-profile-image"
+              />
+              <div className="contact-greeting">
+                <h3>Let's work together!</h3>
+                <p>
+                  I'm always excited to connect with fellow developers and
+                  potential collaborators.
+                </p>
+              </div>
+            </div>
+
             <div className="contact-methods-grid">
               {contactMethods.map((method, index) => (
                 <a

@@ -301,6 +301,60 @@ $gradient-hero: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 7
     .contact-methods-section {
       margin-bottom: 5rem;
 
+      .contact-profile {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+        margin: 3rem 0;
+        padding: 2rem;
+        @include glassmorphism(0.05);
+        border-radius: 20px;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+        
+        @media (max-width: 768px) {
+          flex-direction: column;
+          text-align: center;
+          gap: 1.5rem;
+          padding: 1.5rem;
+        }
+
+        .contact-profile-image {
+          width: 100px;
+          height: 100px;
+          border-radius: 50%;
+          object-fit: cover;
+          border: 2px solid $primary-color;
+          box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+          transition: all 0.3s ease;
+          
+          &:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.4);
+          }
+        }
+
+        .contact-greeting {
+          flex: 1;
+          
+          h3 {
+            color: $primary-color;
+            font-size: 1.3rem;
+            margin: 0 0 0.5rem 0;
+            font-weight: 600;
+          }
+          
+          p {
+            color: $text-secondary;
+            margin: 0;
+            line-height: 1.5;
+            opacity: 0.9;
+          }
+        }
+      }
+
       .contact-methods-grid {
         @include responsive-grid(1, 2, 3);
         max-width: 900px;

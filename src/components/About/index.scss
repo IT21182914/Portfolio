@@ -398,8 +398,67 @@ $gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
 
     .visual-section {
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
+      gap: 3rem;
+
+      .profile-showcase {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        opacity: 0;
+        animation: fadeInUp 1s 1.5s both;
+
+        .about-profile-image {
+          width: 180px;
+          height: 180px;
+          border-radius: 50%;
+          object-fit: cover;
+          border: 3px solid $primary-color;
+          box-shadow: 
+            0 0 25px rgba(255, 215, 0, 0.3),
+            0 0 50px rgba(255, 215, 0, 0.1);
+          transition: all 0.3s ease;
+          filter: brightness(1.05) contrast(1.05);
+          
+          @media screen and (max-width: 768px) {
+            width: 140px;
+            height: 140px;
+          }
+          
+          @media screen and (max-width: 480px) {
+            width: 120px;
+            height: 120px;
+          }
+          
+          &:hover {
+            transform: scale(1.05);
+            box-shadow: 
+              0 0 35px rgba(255, 215, 0, 0.4),
+              0 0 70px rgba(255, 215, 0, 0.2);
+          }
+        }
+
+        .profile-info {
+          text-align: center;
+          
+          h3 {
+            color: $primary-color;
+            font-size: 1.5rem;
+            margin: 0 0 0.5rem 0;
+            font-weight: 600;
+          }
+          
+          p {
+            color: $text-secondary;
+            font-size: 1rem;
+            margin: 0;
+            opacity: 0.8;
+          }
+        }
+      }
 
       .tech-ecosystem {
         position: relative;

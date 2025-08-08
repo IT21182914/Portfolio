@@ -311,6 +311,19 @@ const About = () => {
           </div>
 
           <div className="visual-section">
+            {/* Profile Image */}
+            <div className="profile-showcase">
+              <img
+                src="/Me/Me.jpg"
+                alt="Dilan Shanuka - About Me"
+                className="about-profile-image"
+              />
+              <div className="profile-info">
+                <h3>Dilan Shanuka</h3>
+                <p>FullStack Developer</p>
+              </div>
+            </div>
+
             <div className="tech-ecosystem">
               <div className="central-hub">
                 <div className="hub-core">
