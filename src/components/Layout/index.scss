@@ -2,8 +2,7 @@
     width: 100%;
     min-height: 100vh;
     position: relative;
-    overflow-x: hidden;
-    overflow-y: visible; /* Allow natural scrolling */
+    overflow-x: hidden; /* Hide horizontal overflow only */
   }
   
   .top-tags {
@@ -37,8 +36,7 @@
     transform-style: preserve-3d;
     animation: fadeIn 1s forwards;
     animation-delay: 1s;
-    overflow-x: hidden;
-    overflow-y: visible; /* Allow natural vertical scrolling */
+    overflow-x: hidden; /* Hide horizontal overflow only */
   }
   
   .container.contact-page,

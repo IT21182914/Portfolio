@@ -24,16 +24,18 @@ $gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
 }
 
 .container.about-page {
-  min-height: 100vh;
-  padding: 2rem;
+  min-height: 100vh; /* Allow content to grow naturally */
+  padding: 2rem 3rem; /* Increase horizontal padding for better balance */
   max-width: 1400px;
   margin: 0 auto;
-  margin-left: 80px; // Account for sidebar width
-  overflow-x: hidden;
+  margin-left: 100px; // Account for sidebar width with better balance
+  overflow-x: hidden; /* Hide horizontal overflow only */
+  padding-bottom: 2rem; /* Add bottom padding for scrolling */
   
   // Adjust for different screen sizes
   @media screen and (max-width: 1024px) {
-    margin-left: 60px; // Smaller sidebar on tablets
+    margin-left: 80px; // Smaller sidebar on tablets
+    padding: 2rem;
   }
   
   @media screen and (max-width: 768px) {

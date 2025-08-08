@@ -637,7 +637,7 @@ $mobile-header-height: 70px;
       transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       padding: 0;
       justify-content: flex-start;
-      overflow-y: auto;
+      overflow-y: auto; /* Allow scrolling in mobile menu if needed */
 
       &.mobile-show {
         transform: translateX(0);

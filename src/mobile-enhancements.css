@@ -58,30 +58,25 @@ button {
   background: none;
 }
 
-/* Improve scrollbar appearance */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: rgba(0, 245, 255, 0.5);
-  border-radius: 10px;
-  
-  &:hover {
-    background: rgba(0, 245, 255, 0.7);
-  }
-}
-
-/* Firefox scrollbar styling */
+/* Responsive scrolling enhancements */
 html {
-  scrollbar-width: thin;
-  scrollbar-color: rgba(0, 245, 255, 0.5) rgba(255, 255, 255, 0.1);
+  scroll-behavior: smooth;
+}
+
+/* Improve touch scrolling on iOS */
+* {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Responsive scrollbar for mobile */
+@media (max-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 215, 0, 0.8);
+  }
 }
 
 /* Better focus styles for accessibility */

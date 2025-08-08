@@ -1,7 +1,9 @@
 html {
   font-size: 62.5%;
-  overflow-x: hidden;
+  overflow-x: hidden; /* Hide horizontal scrollbar only */
+  overflow-y: auto; /* Allow vertical scrolling when needed */
   scroll-behavior: smooth;
+  height: 100%;
 }
 
 body {
@@ -11,28 +13,35 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: #022c43;
-  overflow-x: hidden;
-  overflow-y: auto;
+  overflow-x: hidden; /* Hide horizontal scrollbar only */
+  overflow-y: auto; /* Allow vertical scrolling when needed */
   display: block;
+  min-height: 100vh; /* Allow content to grow */
 }
 
-/* Global scrollbar styling */
+/* Custom scrollbar styling - elegant and minimal */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #ffd700 rgba(255, 255, 255, 0.05);
+}
+
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #ffd700;
-  border-radius: 4px;
+  background: linear-gradient(180deg, #ffd700, #ffed4a);
+  border-radius: 3px;
+  transition: background 0.3s ease;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #ffed4a;
+  background: linear-gradient(180deg, #ffed4a, #ffd700);
 }
 
 .dashboard {
@@ -42,6 +51,11 @@ body {
 
 /* Enhanced responsive styles */
 @media screen and (max-width: 1200px) {
+  html {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+  
   body {
     overflow-x: hidden;
     overflow-y: auto;
@@ -56,6 +70,8 @@ body {
 @media screen and (max-width: 768px) {
   html {
     font-size: 60%;
+    overflow-x: hidden;
+    overflow-y: auto;
   }
   
   body {
@@ -74,6 +90,8 @@ body {
 @media screen and (max-width: 480px) {
   html {
     font-size: 58%;
+    overflow-x: hidden;
+    overflow-y: auto;
   }
   
   body {

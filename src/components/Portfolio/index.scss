@@ -25,24 +25,25 @@ $gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
 }
 
 .container.portfolio-page {
-  min-height: 100vh;
-  padding: 1rem;
+  min-height: 100vh; /* Allow content to grow naturally */
+  padding: 1rem 2rem; /* Increase horizontal padding for better balance */
   width: 100%;
   margin: 0;
-  margin-left: 80px; // Account for sidebar
-  overflow-x: hidden;
+  margin-left: 100px; // Account for sidebar with better balance
+  overflow-x: hidden; /* Hide horizontal overflow only */
+  padding-bottom: 2rem; /* Add bottom padding for scrolling */
+  max-width: calc(100vw - 100px); /* Prevent overflow */
   
   @media screen and (max-width: 1024px) {
-    margin-left: 60px;
-    padding: 1rem;
+    margin-left: 80px;
+    padding: 1rem 1.5rem;
+    max-width: calc(100vw - 80px);
   }
   
   @media screen and (max-width: 768px) {
     margin-left: 0;
-    padding-top: 80px; // Account for mobile header
-    padding-left: 1rem;
-    padding-right: 1rem;
-    padding-bottom: 1rem;
+    padding: 80px 1rem 1rem 1rem; // Account for mobile header, better spacing
+    max-width: 100vw;
   }
 
   @media screen and (max-width: 480px) {
@@ -560,7 +561,7 @@ $gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
     padding: 2rem;
     backdrop-filter: blur(10px);
     animation: fadeIn 0.3s ease;
-    overflow-y: auto; // Allow modal overlay to scroll
+    overflow-y: auto; /* Allow vertical scrolling in modal */
 
     @media screen and (max-width: 768px) {
       padding: 1rem;
@@ -574,7 +575,7 @@ $gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
     max-width: 1000px; // Reduced max width
     max-height: 85vh; // Reduced max height
     width: 100%;
-    overflow-y: auto;
+    overflow-y: auto; /* Allow vertical scrolling in modal */
     position: relative;
     animation: slideInUp 0.4s ease;
     margin: auto; // Center the modal
@@ -878,24 +879,7 @@ $gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
       }
     }
 
-    // Modal Scrollbar Styling
-    &::-webkit-scrollbar {
-      width: 6px;
-    }
-
-    &::-webkit-scrollbar-track {
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 3px;
-    }
-
-    &::-webkit-scrollbar-thumb {
-      background: $primary-color;
-      border-radius: 3px;
-
-      &:hover {
-        background: lighten($primary-color, 10%);
-      }
-    }
+    // All scrollbar styling removed - handled globally
   }
 }
 

@@ -308,7 +308,7 @@ const Portfolio = () => {
 
   const closeProjectModal = () => {
     setSelectedProject(null);
-    document.body.style.overflow = 'auto';
+    document.body.style.overflow = ''; // Reset to default CSS instead of 'auto'
   };
 
   const nextImage = () => {

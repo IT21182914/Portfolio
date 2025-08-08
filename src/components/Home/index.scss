@@ -23,21 +23,23 @@ $gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
 }
 
 .home-page {
-  min-height: 100vh;
+  min-height: 100vh; /* Allow content to grow naturally */
   position: relative;
-  overflow-x: hidden;
-  margin-left: 80px; // Account for sidebar width
-  width: calc(100vw - 80px); // Prevent horizontal overflow
+  overflow-x: hidden; /* Hide horizontal overflow only */
+  margin-left: 100px; // Account for sidebar width with better balance
+  width: calc(100vw - 100px); // Prevent horizontal overflow
+  padding: 0 2rem; // Add horizontal padding for better content spacing
   
   @media screen and (max-width: 1024px) {
-    margin-left: 60px; // Smaller sidebar on tablets
-    width: calc(100vw - 60px);
+    margin-left: 80px; // Smaller sidebar on tablets
+    width: calc(100vw - 80px);
+    padding: 0 1.5rem;
   }
   
   @media screen and (max-width: 768px) {
     margin-left: 0; // No sidebar offset on mobile
     width: 100vw;
-    padding-top: 70px; // Account for mobile header
+    padding: 70px 1rem 0 1rem; // Account for mobile header with proper padding
   }
   
   // Animated Background Elements
@@ -93,8 +95,8 @@ $gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
     align-items: center;
-    padding: 1rem 2rem;
-    min-height: 100vh;
+    padding: 1rem 0; /* Remove extra padding since parent has padding */
+    min-height: calc(100vh - 100px); /* Account for header/footer space */
     position: relative;
     z-index: 1;
     max-width: 100%;
