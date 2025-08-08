@@ -89,7 +89,7 @@ const Portfolio = () => {
         'Modern UI/UX',
         'Performance Optimized',
       ],
-      hostUrl: 'https://techspot99.netlify.app/',
+      hostUrl: 'https://techspotlk.com/',
       githubUrl: 'https://github.com/IT21182914/Tech-Spot-Official',
       status: 'Live',
       year: '2024',

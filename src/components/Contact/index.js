@@ -215,10 +215,11 @@ const Contact = () => {
               />
             </h1>
             <p className="hero-subtitle">
-              Need premium smartphones, expert repairs, or custom tech
-              solutions? Let's connect and explore how{' '}
+              Interested in Software Engineering, Entrepreneurship, discussing
+              Business Growth strategies, or Leadership development? Let's
+              connect and explore how{' '}
               <span className="tech-spot-brand">Tech Spot</span>
-              can serve your mobile technology needs!
+              can collaborate on innovative tech solutions!
             </p>
 
             <div className="quick-stats">
@@ -256,13 +257,17 @@ const Contact = () => {
                 className="contact-profile-image"
               />
               <div className="contact-greeting">
-                <h3>Looking for premium mobile tech solutions?</h3>
+                <h3>
+                  Looking for Software Engineering expertise or Business Growth
+                  insights?
+                </h3>
                 <p>
                   As the Founder & CEO of{' '}
                   <span className="tech-spot-brand">Tech Spot</span> in
-                  Tissamaharama, I'm passionate about connecting with customers
-                  who value quality smartphones, reliable repair services, and
-                  innovative tech accessories.
+                  Tissamaharama, I'm passionate about connecting with
+                  entrepreneurs, developers, and business leaders who value
+                  innovative tech solutions, scalable business strategies, and
+                  leadership development.
                 </p>
               </div>
             </div>
@@ -482,14 +487,23 @@ const Contact = () => {
                 </div>
                 <div className="about-content">
                   <p>
-                    I'm a passionate Software Engineer seeking internship
-                    opportunities to expand my professional experience and
-                    contribute to innovative projects.
+                    I'm a passionate Software Engineer, Entrepreneur, and the
+                    Founder & CEO of
+                    <span className="tech-spot-brand"> Tech Spot</span>, a
+                    growing mobile technology and accessories business in
+                    Tissamaharama, Sri Lanka.
                   </p>
                   <p>
-                    I specialize in full-stack development, DevOps practices,
-                    and emerging AI/ML technologies. Let's build something
-                    amazing together!
+                    My journey blends technical expertise in full-stack
+                    development with entrepreneurial vision. I develop custom
+                    software solutions like our cloud-based POS and repair
+                    tracking system while leading business strategy and
+                    operations.
+                  </p>
+                  <p>
+                    I'm committed to building technology that solves real
+                    business problems and creating sustainable, scalable
+                    business models.
                   </p>
                 </div>
                 <div className="skills-preview">
