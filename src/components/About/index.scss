@@ -156,6 +156,24 @@ $gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
             line-height: 1.8;
             font-size: 1.1rem;
             margin-bottom: 1.5rem;
+
+            .tech-spot-brand {
+              background: #ffffff;
+              color: #000000;
+              padding: 0.3rem 0.8rem;
+              border-radius: 25px;
+              font-weight: 700;
+              display: inline-block;
+              margin: 0 0.2rem;
+              box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+              border: 1px solid rgba(0, 0, 0, 0.1);
+              transition: all 0.3s ease;
+              
+              &:hover {
+                transform: translateY(-1px);
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+              }
+            }
           }
         }
 

@@ -110,6 +110,11 @@ $gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
       grid-template-columns: 1fr;
       text-align: center;
       padding: 1rem;
+      
+      .text-zone {
+        max-width: 100%;
+        overflow: visible;
+      }
     }
 
     @media screen and (max-width: 768px) {
@@ -140,6 +145,21 @@ $gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
         font-family: 'Coolvetica', sans-serif;
         font-weight: 400;
         position: relative;
+        white-space: nowrap;
+        overflow-wrap: break-word;
+        word-break: keep-all;
+
+        @media screen and (max-width: 768px) {
+          white-space: normal;
+          word-break: break-word;
+          hyphens: none;
+          font-size: clamp(2rem, 8vw, 3rem);
+        }
+
+        @media screen and (max-width: 480px) {
+          font-size: clamp(1.8rem, 10vw, 2.5rem);
+          line-height: 1.2;
+        }
 
         &:before {
           content: '<developer>';
@@ -173,6 +193,49 @@ $gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
           animation: rotateIn 1s linear both;
           animation-delay: 1.4s;
           filter: drop-shadow(0 0 10px $primary-color);
+        }
+      }
+
+      .hero-subtitle {
+        color: $text-secondary;
+        font-size: clamp(1.1rem, 2.8vw, 1.3rem);
+        line-height: 1.5;
+        margin: 1.5rem 0 2rem 0;
+        max-width: 600px;
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInUp 1s 1.8s both;
+        font-weight: 400;
+
+        @media screen and (max-width: 1024px) {
+          text-align: center;
+          margin: 1.5rem auto 2rem auto;
+        }
+
+        @media screen and (max-width: 768px) {
+          margin: 1.2rem auto 1.5rem auto;
+        }
+
+        @media screen and (max-width: 480px) {
+          margin: 1rem auto 1.2rem auto;
+        }
+
+        .tech-spot-brand {
+          background: #ffffff;
+          color: #000000;
+          padding: 0.3rem 0.8rem;
+          border-radius: 25px;
+          font-weight: 700;
+          display: inline-block;
+          margin: 0 0.2rem;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+          border: 1px solid rgba(0, 0, 0, 0.1);
+          transition: all 0.3s ease;
+          
+          &:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+          }
         }
       }
 
@@ -353,6 +416,42 @@ $gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
 
           &:hover {
             background: $primary-color;
+            color: $background-dark;
+            @include button-hover;
+          }
+        }
+
+        .tertiary-button {
+          color: #25d366;
+          text-decoration: none;
+          padding: 1rem 2rem;
+          border: 2px solid #25d366;
+          border-radius: 50px;
+          font-weight: 600;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          transition: all 0.3s ease;
+          opacity: 0;
+          animation: fadeInUp 1s 3.4s both;
+          font-size: clamp(0.8rem, 2vw, 0.9rem);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 0.5rem;
+
+          @media screen and (max-width: 768px) {
+            padding: 0.875rem 1.75rem;
+          }
+
+          @media screen and (max-width: 480px) {
+            width: 100%;
+            max-width: 280px;
+            text-align: center;
+            padding: 0.75rem 1.5rem;
+          }
+
+          &:hover {
+            background: #25d366;
             color: $background-dark;
             @include button-hover;
           }
@@ -651,6 +750,16 @@ $gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
           font-size: clamp(2rem, 8vw, 3rem);
           line-height: 1.2;
           margin-bottom: 1.5rem;
+          white-space: normal;
+          word-break: keep-all;
+          overflow-wrap: anywhere;
+
+          @media screen and (max-width: 400px) {
+            font-size: clamp(1.6rem, 9vw, 2.2rem);
+            white-space: nowrap;
+            transform: scale(0.9);
+            transform-origin: left center;
+          }
 
           &:before,
           &:after {
@@ -770,7 +879,10 @@ $gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
     }
 
     .text-zone .intro-section h1 {
-      font-size: 1.6rem;
+      font-size: 1.4rem;
+      white-space: nowrap;
+      transform: scale(0.85);
+      transform-origin: left center;
       
       img {
         width: 2rem;

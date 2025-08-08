@@ -129,23 +129,28 @@ const Contact = () => {
   const quickStats = [
     {
       icon: faCode,
-      number: '15+',
+      number: '30+',
       label: 'Projects Completed',
       color: '#00f5ff',
     },
     {
       icon: faRocket,
-      number: '3+',
+      number: '5+',
       label: 'Years Experience',
       color: '#ffd700',
     },
     {
       icon: faStar,
-      number: '100%',
-      label: 'Client Satisfaction',
+      number: '1',
+      label: 'Company Founded',
       color: '#ff6b6b',
     },
-    { icon: faHeart, number: '24/7', label: 'Availability', color: '#00ff88' },
+    {
+      icon: faHeart,
+      number: '24/7',
+      label: 'Business Support',
+      color: '#00ff88',
+    },
   ];
 
   const availabilityHours = [
@@ -210,8 +215,10 @@ const Contact = () => {
               />
             </h1>
             <p className="hero-subtitle">
-              Ready to bring your ideas to life? Let's create something amazing
-              together!
+              Need premium smartphones, expert repairs, or custom tech
+              solutions? Let's connect and explore how{' '}
+              <span className="tech-spot-brand">Tech Spot</span>
+              can serve your mobile technology needs!
             </p>
 
             <div className="quick-stats">
@@ -249,10 +256,13 @@ const Contact = () => {
                 className="contact-profile-image"
               />
               <div className="contact-greeting">
-                <h3>Let's work together!</h3>
+                <h3>Looking for premium mobile tech solutions?</h3>
                 <p>
-                  I'm always excited to connect with fellow developers and
-                  potential collaborators.
+                  As the Founder & CEO of{' '}
+                  <span className="tech-spot-brand">Tech Spot</span> in
+                  Tissamaharama, I'm passionate about connecting with customers
+                  who value quality smartphones, reliable repair services, and
+                  innovative tech accessories.
                 </p>
               </div>
             </div>
@@ -289,8 +299,10 @@ const Contact = () => {
                 <div className="form-header">
                   <h2>Send a Message</h2>
                   <p>
-                    I'd love to hear about your project and how we can work
-                    together
+                    Tell me about your mobile tech needs and let's explore how
+                    <span className="tech-spot-brand">Tech Spot</span> can
+                    provide the perfect smartphone, repair service, or tech
+                    accessory solution
                   </p>
                 </div>
 

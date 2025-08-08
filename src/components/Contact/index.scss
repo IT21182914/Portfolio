@@ -205,6 +205,24 @@ $gradient-hero: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 7
         max-width: 600px;
         margin-left: auto;
         margin-right: auto;
+
+        .tech-spot-brand {
+          background: #ffffff;
+          color: #000000;
+          padding: 0.3rem 0.8rem;
+          border-radius: 25px;
+          font-weight: 700;
+          display: inline-block;
+          margin: 0 0.2rem;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+          border: 1px solid rgba(0, 0, 0, 0.1);
+          transition: all 0.3s ease;
+          
+          &:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+          }
+        }
       }
 
       .quick-stats {
@@ -351,6 +369,24 @@ $gradient-hero: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 7
             margin: 0;
             line-height: 1.5;
             opacity: 0.9;
+
+            .tech-spot-brand {
+              background: #ffffff;
+              color: #000000;
+              padding: 0.3rem 0.8rem;
+              border-radius: 25px;
+              font-weight: 700;
+              display: inline-block;
+              margin: 0 0.2rem;
+              box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+              border: 1px solid rgba(0, 0, 0, 0.1);
+              transition: all 0.3s ease;
+              
+              &:hover {
+                transform: translateY(-1px);
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+              }
+            }
           }
         }
       }
@@ -502,6 +538,24 @@ $gradient-hero: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 7
               color: $text-secondary;
               font-size: 1rem;
               line-height: 1.6;
+
+              .tech-spot-brand {
+                background: #ffffff;
+                color: #000000;
+                padding: 0.3rem 0.8rem;
+                border-radius: 25px;
+                font-weight: 700;
+                display: inline-block;
+                margin: 0 0.2rem;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+                border: 1px solid rgba(0, 0, 0, 0.1);
+                transition: all 0.3s ease;
+                
+                &:hover {
+                  transform: translateY(-1px);
+                  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+                }
+              }
             }
           }
 

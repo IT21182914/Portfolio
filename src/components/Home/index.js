@@ -4,6 +4,28 @@ import Loader from 'react-loaders';
 import AnimatedLetters from '../AnimatedLetters';
 import LogoTitle from '../../assets/images/download11-removebg-preview.png';
 import Logo from './Logo';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faCode,
+  faRocket,
+  faBrain,
+  faChartLine,
+  faUsers,
+  faBuilding,
+  faCog,
+  faDatabase,
+  faCloud,
+  faShieldAlt,
+} from '@fortawesome/free-solid-svg-icons';
+import {
+  faReact,
+  faNode,
+  faDocker,
+  faAws,
+  faPython,
+  faGithub,
+  faStripe,
+} from '@fortawesome/free-brands-svg-icons';
 import './index.scss';
 
 const Home = () => {
@@ -12,43 +34,56 @@ const Home = () => {
 
   const nameArray = ['i', 'l', 'a', 'n', '', 'S', 'h', 'a', 'n', 'u', 'k', 'a'];
   const jobArray = [
-    'F',
-    'u',
-    'l',
-    'l',
     'S',
-    't',
-    'a',
-    'c',
-    'k',
-    ' ',
-    'D',
-    'e',
-    'v',
-    'e',
-    'l',
     'o',
-    'p',
+    'f',
+    't',
+    'w',
+    'a',
+    'r',
     'e',
+    ' ',
+    'E',
+    'n',
+    'g',
+    'i',
+    'n',
+    'e',
+    'e',
+    'r',
+    ' ',
+    '&',
+    ' ',
+    'E',
+    'n',
+    't',
+    'r',
+    'e',
+    'p',
+    'r',
+    'e',
+    'n',
+    'e',
+    'u',
     'r',
   ];
 
   const specialties = [
-    { icon: '🐳', text: 'DevOps Lover' },
-    { icon: '🤖', text: 'AI/ML Enthusiast' },
-    { icon: '☁️', text: 'Cloud Enthusiast' },
-    { icon: '⚙️', text: 'Automation' },
+    { icon: faBuilding, text: 'Founder & CEO' },
+    { icon: faCode, text: 'Full-Stack Developer' },
+    { icon: faCloud, text: 'DevOps Engineer' },
+    { icon: faBrain, text: 'AI Innovator' },
   ];
 
   const techStack = [
-    { name: 'React', level: 90 },
-    { name: 'Node.js', level: 85 },
-    { name: 'Docker', level: 80 },
-    { name: 'Kubernetes', level: 75 },
-    { name: 'AWS', level: 85 },
-    { name: 'Python', level: 80 },
-    { name: 'TensorFlow', level: 70 },
-    { name: 'CI/CD', level: 85 },
+    { name: 'React', level: 92 },
+    { name: 'Node.js', level: 88 },
+    { name: 'PostgreSQL', level: 85 },
+    { name: 'Docker', level: 82 },
+    { name: 'AWS', level: 80 },
+    { name: 'Python', level: 85 },
+    { name: 'Supabase', level: 88 },
+    { name: 'Stripe', level: 75 },
   ];
 
   useEffect(() => {
@@ -105,25 +140,47 @@ const Home = () => {
                     className={`role-tag ${isVisible ? 'animate-in' : ''}`}
                     style={{ animationDelay: `${2 + index * 0.2}s` }}
                   >
-                    <span className="role-icon">{specialty.icon}</span>
+                    <FontAwesomeIcon
+                      icon={specialty.icon}
+                      className="role-icon"
+                    />
                     <span className="role-text">{specialty.text}</span>
                   </div>
                 ))}
               </div>
 
+              <p className="hero-subtitle">
+                Founder & CEO,{' '}
+                <span className="tech-spot-brand">Tech Spot</span> | Full-Stack
+                Developer | DevOps & AI Innovator
+              </p>
+
               <p className="description">
-                Passionate about building scalable applications, automating
-                infrastructure, and exploring the frontiers of artificial
-                intelligence. I craft digital experiences that merge innovation
-                with reliability.
+                I build scalable applications, manage{' '}
+                <span className="tech-spot-brand">Tech Spot</span> mobile
+                technology store, and create custom software solutions that
+                drive business efficiency.
               </p>
 
               <div className="cta-buttons">
-                <Link to="/contact" className="primary-button">
-                  <span>Let's Connect</span>
+                <a
+                  href="https://wa.me/94710479052"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="primary-button"
+                >
+                  <span>Contact Me</span>
                   <div className="button-bg"></div>
-                </Link>
-                <Link to="/portfolio" className="secondary-button">
+                </a>
+                <a
+                  href="https://techspotlk.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="secondary-button"
+                >
+                  <span>Visit Tech Spot</span>
+                </a>
+                <Link to="/portfolio" className="tertiary-button">
                   <span>View My Work</span>
                 </Link>
               </div>

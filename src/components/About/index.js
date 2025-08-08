@@ -17,7 +17,6 @@ import {
   faDownload,
   faRocket,
   faBrain,
-  faServer,
   faCloud,
   faCog,
   faCode,
@@ -51,24 +50,24 @@ const About = () => {
   );
 
   const devOpsSkills = [
-    { name: 'CI/CD', icon: faRocket, color: '#00f5ff' },
-    { name: 'Kubernetes', icon: faServer, color: '#326CE5' },
-    { name: 'Cloud Computing', icon: faCloud, color: '#FF9900' },
-    { name: 'Infrastructure', icon: faCog, color: '#ffd700' },
+    { name: 'Team Leadership', icon: faRocket, color: '#00f5ff' },
+    { name: 'Business Strategy', icon: faChartLine, color: '#ffd700' },
+    { name: 'Tech Innovation', icon: faCloud, color: '#FF9900' },
+    { name: 'Product Development', icon: faCog, color: '#ff6b6b' },
   ];
 
   const aiMlSkills = [
-    { name: 'Machine Learning', icon: faBrain, color: '#ff6b6b' },
-    { name: 'Data Analysis', icon: faChartLine, color: '#00f5ff' },
-    { name: 'Neural Networks', icon: faDatabase, color: '#ffd700' },
-    { name: 'Model Deployment', icon: faShieldAlt, color: '#ff6b6b' },
+    { name: 'Tech Solutions', icon: faBrain, color: '#ff6b6b' },
+    { name: 'Digital Innovation', icon: faChartLine, color: '#00f5ff' },
+    { name: 'System Architecture', icon: faDatabase, color: '#ffd700' },
+    { name: 'Client Success', icon: faShieldAlt, color: '#ff6b6b' },
   ];
 
   const achievements = [
-    { number: '15+', label: 'Projects Completed' },
-    { number: '3+', label: 'Years Experience' },
-    { number: '8+', label: 'Technologies Mastered' },
-    { number: '100%', label: 'Client Satisfaction' },
+    { number: '30+', label: 'Projects Completed' },
+    { number: '5+', label: 'Years Experience' },
+    { number: '12+', label: 'Technologies Mastered' },
+    { number: '1', label: 'Company Founded' },
   ];
 
   useEffect(() => {
@@ -149,18 +148,26 @@ const About = () => {
     overview: (
       <div className="tab-content">
         <div className="about-intro">
-          <h3>Full Stack Developer & DevOps Enthusiast</h3>
+          <h3>Software Engineer, Entrepreneur & Founder</h3>
           <p>
-            I am a passionate final year undergraduate at SLIIT, specializing in
-            software engineering with a focus on modern web technologies, DevOps
-            practices, and emerging AI/ML technologies. I thrive on building
-            scalable applications and automating complex workflows.
+            I'm a passionate Software Engineer, Entrepreneur, and the Founder &
+            CEO of
+            <span className="tech-spot-brand">Tech Spot</span>, a growing mobile
+            technology and accessories business in Tissamaharama, Sri Lanka.
+            Tech Spot specializes in high-quality smartphones, accessories, and
+            expert repair services — powered by innovative in-house technology.
           </p>
           <p>
-            My journey in technology spans across full-stack development, cloud
-            computing, and machine learning. I believe in writing clean,
-            efficient code and implementing robust CI/CD pipelines that ensure
-            seamless deployment and monitoring.
+            My journey blends technical expertise in full-stack development with
+            entrepreneurial vision. At Tech Spot, I lead the business strategy,
+            operations, and customer experience while also developing custom
+            software solutions such as our cloud-based POS and repair tracking
+            system to streamline processes and improve efficiency.
+          </p>
+          <p>
+            Beyond code, I'm committed to building technology that solves real
+            business problems, mentoring the next generation of developers, and
+            creating sustainable business models that can scale over time.
           </p>
         </div>
 
@@ -208,12 +215,14 @@ const About = () => {
     devops: (
       <div className="tab-content">
         <div className="specialization-section">
-          <h3>DevOps & Cloud Engineering</h3>
+          <h3>Business Leadership & Mobile Tech Expertise</h3>
           <p>
-            Passionate about automating infrastructure, implementing CI/CD
-            pipelines, and ensuring scalable, reliable deployments. I work with
-            containerization, orchestration, and cloud platforms to create
-            robust development workflows.
+            As Founder & CEO of{' '}
+            <span className="tech-spot-brand">Tech Spot</span> in Tissamaharama,
+            I combine technical software development skills with retail business
+            acumen. I oversee our mobile technology store operations, manage
+            customer relationships, and develop custom software solutions like
+            our POS and repair tracking systems to optimize business efficiency.
           </p>
           <div className="specialization-grid">
             {devOpsSkills.map((skill, index) => (
@@ -233,12 +242,14 @@ const About = () => {
     aiml: (
       <div className="tab-content">
         <div className="specialization-section">
-          <h3>AI & Machine Learning</h3>
+          <h3>Tech Spot Store & Services</h3>
           <p>
-            Exploring the frontiers of artificial intelligence and machine
-            learning. I work with neural networks, data analysis, and model
-            deployment to create intelligent applications that solve real-world
-            problems.
+            Through <span className="tech-spot-brand">Tech Spot</span>, I
+            provide premium mobile technology retail services including
+            high-quality smartphones, accessories, and expert repair services in
+            Tissamaharama, Sri Lanka. Our store combines retail excellence with
+            custom software solutions to deliver exceptional customer
+            experiences.
           </p>
           <div className="specialization-grid">
             {aiMlSkills.map((skill, index) => (
@@ -301,10 +312,21 @@ const About = () => {
               </a>
 
               <div className="contact-info">
-                <p>Ready to collaborate on innovative projects</p>
+                <p>Ready to collaborate on innovative business solutions</p>
                 <div className="contact-details">
                   <span>📧 dilanshanuka999@gmail.com</span>
                   <span>📱 +94 71 047 9052</span>
+                  <span>
+                    🌐{' '}
+                    <a
+                      href="https://techspotlk.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ color: '#ffd700', textDecoration: 'none' }}
+                    >
+                      Tech Spot
+                    </a>
+                  </span>
                 </div>
               </div>
             </div>
@@ -320,7 +342,7 @@ const About = () => {
               />
               <div className="profile-info">
                 <h3>Dilan Shanuka</h3>
-                <p>FullStack Developer</p>
+                <p>Software Engineer & CEO</p>
               </div>
             </div>
 
