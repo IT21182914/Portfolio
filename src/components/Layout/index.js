@@ -1,10 +1,12 @@
 import { Outlet } from 'react-router-dom';
 import Sidebar from '../Sidebar/';
+import UpdateBanner from '../UpdateBanner/';
 import './index.scss';
 
 const Layout = () => {
   return (
     <>
+      <UpdateBanner />
       <Sidebar />
       <div className="page horizontal-scroll-fix">
         <span className="tags top-tags">&lt;body&gt;</span>

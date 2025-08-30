@@ -157,11 +157,12 @@ $mobile-header-height: 70px;
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1000;
+  z-index: 999; /* Lower than banner */
   display: flex;
   flex-direction: column;
   border-right: 1px solid rgba(255, 255, 255, 0.1);
-  overflow: hidden;
+  overflow-y: auto; /* Allow scrolling if content overflows */
+  overflow-x: hidden;
 
   // Enhanced Logo Section
   .logo-section {
@@ -267,7 +268,7 @@ $mobile-header-height: 70px;
     justify-content: center;
     align-items: center;
     gap: 1rem;
-    padding: 2rem 0;
+    padding: 1.5rem 0; /* Reduced padding to give more space */
 
     .mobile-nav-header {
       display: none;
@@ -452,7 +453,8 @@ $mobile-header-height: 70px;
 
   // Enhanced Social Section
   .social-section {
-    padding: 1rem 0;
+    padding: 1rem 0 2rem 0; /* Add extra bottom padding */
+    margin-bottom: 1rem; /* Ensure spacing from bottom */
 
     .social-title {
       text-align: center;
@@ -633,19 +635,23 @@ $mobile-header-height: 70px;
     display: none !important;
   }
 
-  // Adjust main content for mobile header
+  // Adjust main content for mobile header and banner
   .container {
-    padding-top: $mobile-header-height;
+    padding-top: calc($mobile-header-height + 40px); /* Include space for banner */
   }
 
   // Mobile Navigation Styles
   .nav-bar {
+    // Adjust for banner on mobile
+    top: 40px !important;
+    height: calc(100vh - 40px) !important;
+    
     .main-nav {
       position: fixed;
-      top: 0;
+      top: 40px; /* Start below banner */
       left: 0;
       width: 100vw;
-      height: 100vh;
+      height: calc(100vh - 40px); /* Adjust height for banner */
       background: linear-gradient(135deg, rgba(5, 5, 15, 0.99) 0%, rgba(15, 15, 25, 0.99) 100%); /* Darker, more opaque background */
       backdrop-filter: blur(25px); /* Stronger blur effect */
       -webkit-backdrop-filter: blur(25px); /* Safari support */
@@ -1090,12 +1096,12 @@ $mobile-header-height: 70px;
   .mobile-header {
     display: flex !important;
     position: fixed !important;
-    top: 0 !important;
+    top: 40px !important; /* Position below the banner */
     left: 0 !important;
     right: 0 !important;
     width: 100vw !important;
     height: 70px !important;
-    z-index: 9999 !important;
+    z-index: 9998 !important; /* Lower than banner */
     background: rgba(10, 10, 10, 0.95) !important;
     backdrop-filter: blur(20px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);

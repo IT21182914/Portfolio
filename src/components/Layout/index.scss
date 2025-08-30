@@ -3,6 +3,12 @@
     min-height: 100vh;
     position: relative;
     overflow-x: hidden; /* Hide horizontal overflow only */
+    padding-top: 48px; /* Add space for the banner on desktop */
+    
+    // Mobile responsive - account for mobile header + banner
+    @media screen and (max-width: 768px) {
+      padding-top: 118px; /* Mobile header (70px) + banner (48px) */
+    }
   }
   
   .top-tags {
@@ -119,6 +125,7 @@
     .page {
       position: initial;
       overflow-x: hidden;
+      padding-top: 44px; /* Adjust banner space for tablets */
     }
 
     .container {
@@ -167,6 +174,10 @@
 
   // Enhanced tablet responsiveness
   @media screen and (max-width: 768px) {
+    .page {
+      padding-top: 40px; /* Adjust banner space for smaller tablets */
+    }
+    
     .container {
       &.contact-page,
       &.about-page,
@@ -203,6 +214,10 @@
 
   // Enhanced mobile responsiveness
   @media screen and (max-width: 480px) {
+    .page {
+      padding-top: 36px; /* Adjust banner space for mobile */
+    }
+    
     .container {
       &.contact-page,
       &.about-page,
